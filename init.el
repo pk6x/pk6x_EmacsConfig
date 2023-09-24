@@ -293,7 +293,7 @@
     (insert "   $File: $\n")
     (insert "   $Date: $\n")
     (insert "   $Revision: $\n")
-    (insert "   $Creator: Ahmad Almoughrabi $\n")
+    (insert "   $Creator: OOOO $\n")
     (insert "   ======================================================================== */\n")
     (insert "\n")
     (insert "#define ")
@@ -313,7 +313,7 @@
     (insert "   $File: $\n")
     (insert "   $Date: $\n")
     (insert "   $Revision: $\n")
-    (insert "   $Creator: Ahmad Almoughrabi $\n")
+    (insert "   $Creator: OOOO $\n")
     (insert "   ======================================================================== */\n")
   )
 
