@@ -1,6 +1,11 @@
-;; ///////////////////////////////// Startup & style
+;;; Summary --- Beginning of my Emacs init file:
+;;; Commentary:
+;;;;; ///////////////////////////////// Startup & style
 ;; inhibit splash screen
 (setq inhibit-splash-screen t)
+
+;; Default find path
+(setq default-directory "D:/personal_projects/programming")
 
 ;; change the font
 (set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
@@ -73,16 +78,6 @@
 ;; //////////////////////////////// End of Startup & style
 
 ;; //////////////////////////////// Customised keybining
-;; ////// ALT-alternatives
-;; find files
-(define-key global-map "\ef" 'find-file)
-(define-key global-map "\eF" 'find-file-other-window)
-
-(global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
-(global-set-key (read-kbd-macro "\eB") 'ido-switch-buffer-other-window)
-
-;; save file
-(define-key text-mode-map "\es" 'save-buffer)
 
 ;; Prevent consecutive marks activating bloody `transient-mark-mode'.
 (defadvice set-mark-command (after no-bloody-t-m-m activate)
@@ -99,35 +94,6 @@
   (copy-region-as-kill (mark) (point))
   )
 
-(define-key global-map "\e " 'set-mark-command)
-(define-key global-map "\eq" 'append-as-kill)
-(define-key global-map "\ea" 'yank)
-(define-key global-map "\ez" 'kill-region)
-(define-key global-map [M-up] 'previous-blank-line)
-(define-key global-map [M-down] 'next-blank-line)
-(define-key global-map [M-right] 'forward-word)
-(define-key global-map [M-left] 'backward-word)
-
-(define-key global-map "\e:" 'View-back-to-mark)
-(define-key global-map "\e;" 'exchange-point-and-mark)
-
-;; Error list navigation
-(define-key global-map [f9] 'first-error)
-(define-key global-map [f10] 'previous-error)
-(define-key global-map [f11] 'next-error)
-
-(define-key global-map "\eg" 'goto-line)
-(define-key global-map "\ej" 'imenu)
-
-;; Editing
-;; (define-key global-map "^Q" 'copy-region-as-kill)
-;; (define-key global-map "^F" 'yank)
-;; (define-key global-map "^Y" 'nil)
-;; (define-key global-map "^E" 'rotate-yank-pointer)
-(define-key global-map "\eu" 'undo)
-(define-key global-map "\e6" 'upcase-word)
-(define-key global-map "\e^" 'captilize-word)
-(define-key global-map "\e." 'fill-paragraph)
 
 ;; Perform a replace-string in the current region
 (defun replace-in-region (old-word new-word)
@@ -146,24 +112,6 @@
     (replace-string FromString ToString)
     ))
 
-(define-key global-map "\el" 'replace-in-region)
-
-(define-key global-map "\eo" 'query-replace)
-(define-key global-map "\eO" 'replace-string)
-
-;; \377 is alt+backspace
-(define-key global-map "\377" 'backward-kill-word)
-(define-key global-map [M-delete] 'kill-word)
-
-(define-key global-map "\e[" 'start-kbd-macro)
-(define-key global-map "\e]" 'end-kbd-macro)
-(define-key global-map "\e'" 'call-last-kbd-macro)
-
-;; Buffers
-(define-key global-map "\er" 'revert-buffer)
-(define-key global-map "\ek" 'kill-this-buffer)
-(define-key global-map "\es" 'save-buffer)
-
 ;; Navigaiton
 ;; Moves to the previous line containing nothing but whitespace
 (defun previous-blank-line ()
@@ -179,16 +127,6 @@
   (forward-line -1)
   )
 
-(define-key global-map [C-right] 'forward-word)
-(define-key global-map [C-left] 'backward-word)
-(define-key global-map [C-up] 'previous-blank-line)
-(define-key global-map [C-down] 'next-blank-line)
-(define-key global-map [home] 'beginning-of-line)
-(define-key global-map [end] 'end-of-line)
-(define-key global-map [pgup] 'forward-page)
-(define-key global-map [pgdown] 'backward-page)
-(define-key global-map [C-next] 'scroll-other-window)
-(define-key global-map [C-prior] 'scroll-other-window-down)
 
 ;; /////////////////////////////// End of customised keybinding
 
@@ -229,7 +167,7 @@
 
 ;; C++ indentation style
   (defconst c-default-style
-    '((c-electric-pound-behavior   . t)
+    '((c-electric-pound-behavior   . nil)
       (c-tab-always-indent         . nil)
       (c-comment-only-line-offset  . 0)
       (c-hanging-braces-alist      . ((class-open)
@@ -362,9 +300,9 @@
     (find-file-other-window buffer-file-name)
     (find-corresponding-file)
     (other-window -1))
-  
   (define-key c++-mode-map "\ec" 'find-corresponding-file)
   (define-key c++-mode-map "\eC" 'find-corresponding-file-other-window)
+
 )
 
 (add-hook 'c-mode-common-hook 'big-fun-c-hook)
@@ -429,6 +367,60 @@
 
 (global-set-key [f8] 'code-compile)
 ;; ///// End of C++ configuration //////
+
+;; ///////////////////////// Customised keybinds
+(define-key global-map "\ef" 'find-file)
+(define-key global-map "\eF" 'find-file-other-window)
+(global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
+(global-set-key (read-kbd-macro "\eB") 'ido-switch-buffer-other-window)
+(define-key text-mode-map "\es" 'save-buffer)
+(define-key global-map "\e " 'set-mark-command)
+(define-key global-map "\eq" 'append-as-kill)
+(define-key global-map "\ea" 'yank)
+(define-key global-map "\ez" 'kill-region)
+(define-key global-map [M-up] 'previous-blank-line)
+(define-key global-map [M-down] 'next-blank-line)
+(define-key global-map [M-right] 'forward-word)
+(define-key global-map [M-left] 'backward-word)
+(define-key global-map "\e:" 'View-back-to-mark)
+(define-key global-map "\e;" 'exchange-point-and-mark)
+(define-key global-map [f9] 'first-error)
+(define-key global-map [f10] 'previous-error)
+(define-key global-map [f11] 'next-error)
+(define-key global-map "\eg" 'goto-line)
+(define-key global-map "\ej" 'imenu)
+;; (define-key global-map "^Q" 'copy-region-as-kill)
+;; (define-key global-map "^F" 'yank)
+;; (define-key global-map "^Y" 'nil)
+;; (define-key global-map "^E" 'rotate-yank-pointer)
+(define-key global-map "\eu" 'undo)
+(define-key global-map "\e6" 'upcase-word)
+(define-key global-map "\e^" 'captilize-word)
+(define-key global-map "\e." 'fill-paragraph)
+(define-key global-map "\el" 'replace-in-region)
+(define-key global-map "\eo" 'query-replace)
+(define-key global-map "\eO" 'replace-string)
+;; \377 is alt+backspace
+(define-key global-map "\377" 'backward-kill-word)
+(define-key global-map [M-delete] 'kill-word)
+(define-key global-map "\e[" 'start-kbd-macro)
+(define-key global-map "\e]" 'end-kbd-macro)
+(define-key global-map "\e'" 'call-last-kbd-macro)
+(define-key global-map "\er" 'revert-buffer)
+(define-key global-map "\ek" 'kill-this-buffer)
+(define-key global-map "\es" 'save-buffer)
+(define-key global-map [C-right] 'forward-word)
+(define-key global-map [C-left] 'backward-word)
+(define-key global-map [C-up] 'previous-blank-line)
+(define-key global-map [C-down] 'next-blank-line)
+(define-key global-map [home] 'beginning-of-line)
+(define-key global-map [end] 'end-of-line)
+(define-key global-map [pgup] 'forward-page)
+(define-key global-map [pgdown] 'backward-page)
+(define-key global-map [C-next] 'scroll-other-window)
+(define-key global-map [C-prior] 'scroll-other-window-down)
+
+;; //////////////////////////////////////// End of Customised keybinds
 
 ;; //////////////////////////////////////// Auto-generated after first running.
 (custom-set-variables
