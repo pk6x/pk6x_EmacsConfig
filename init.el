@@ -45,7 +45,7 @@
 ;; Powerful info mini-menu
 (setq frame-title-format
       (list (format"%s %%s: %%j " (system-name))
-	    '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+      '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 ;; Smooth scrolling
 (setq scroll-step 3)
@@ -74,7 +74,6 @@
 
 ;; //////////////////////////////// Customised keybining
 ;; ////// ALT-alternatives
-
 ;; find files
 (define-key global-map "\ef" 'find-file)
 (define-key global-map "\eF" 'find-file-other-window)
@@ -134,10 +133,10 @@
 (defun replace-in-region (old-word new-word)
   (interactive "sReplace: \nsReplace: %s With: ")
   (save-excursion (save-restriction
-		    (narrow-to-region (mark) (point))
-		    (beginning-of-buffer)
-		    (replace-string old-word new-word)
-		    ))
+        (narrow-to-region (mark) (point))
+        (beginning-of-buffer)
+        (replace-string old-word new-word)
+        ))
   )
 
 ;; Replace a string without moving point
@@ -195,44 +194,39 @@
 
 ;; //////////////////////////////// C/C++ style
 ;; C/C++ mode handling
-(defun big-fun-c-hook ()
-  ;; Set my style for the current buffer
-  ;; (c-add-style "BigFun" big-fun-c-style t)
+;; Unique comments style
+(setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
+(make-face 'font-lock-fixme-face)
+(make-face 'font-lock-note-face)
+(mapc (lambda (mode)
+  (font-lock-add-keywords
+     mode
+     '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
+       ("\\<\\(NOTE\\)" 1 'font-lock-note-face t))))
+      fixme-modes)
+(modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
+(modify-face 'font-lock-note-face "Dark Green" nil nil t nil t nil nil)
 
-  ;; 4-space tabs
-  ;; (setq tab-width 4)
+;; Accepted file extensions and their appropriate modes
+(setq auto-mode-alist
+(append
+ '(("\\.cpp$"    . c++-mode)
+   ("\\.hin$"    . c++-mode)
+   ("\\.cin$"    . c++-mode)
+   ("\\.inl$"    . c++-mode)
+   ("\\.rdc$"    . c++-mode)
+   ("\\.h$"    . c++-mode)
+   ("\\.c$"   . c++-mode)
+   ("\\.cc$"   . c++-mode)
+   ("\\.c8$"   . c++-mode)
+   ("\\.txt$" . indented-text-mode)
+   ("\\.emacs$" . emacs-lisp-mode)
+   ("\\.gen$" . gen-mode)
+   ("\\.ms$" . fundamental-mode)
+   ("\\.m$" . objc-mode)
+   ("\\.mm$" . objc-mode)
+   ) auto-mode-alist))
 
-  ;; Newline indents, semi-colon wont
-  (define-key c++-mode-map "\C-m" 'newline-and-indent)
-  (setq c-hanging-semi&comma-criteria '((lambda () 'stop)))
-  
-  ;; Additional style stuff
-  (c-set-offset 'member-init-intro '++)
-
-  ;; No hungry backspace
-  (c-toggle-auto-hungry-state -1)
-  
-
-  ;; Accepted file extensions and their appropriate modes
-  (setq auto-mode-alist
-	(append
-	 '(("\\.cpp$"    . c++-mode)
-           ("\\.hin$"    . c++-mode)
-           ("\\.cin$"    . c++-mode)
-           ("\\.inl$"    . c++-mode)
-           ("\\.rdc$"    . c++-mode)
-           ("\\.h$"    . c++-mode)
-           ("\\.c$"   . c++-mode)
-           ("\\.cc$"   . c++-mode)
-           ("\\.c8$"   . c++-mode)
-           ("\\.txt$" . indented-text-mode)
-           ("\\.emacs$" . emacs-lisp-mode)
-           ("\\.gen$" . gen-mode)
-           ("\\.ms$" . fundamental-mode)
-           ("\\.m$" . objc-mode)
-           ("\\.mm$" . objc-mode)
-           ) auto-mode-alist))
-  
 ;; C++ indentation style
   (defconst c-default-style
     '((c-electric-pound-behavior   . t)
@@ -278,6 +272,27 @@
       (c-echo-syntactic-information-p . t))
     "Big Fun C++ Style."
     )
+
+
+(defun big-fun-c-hook ()
+  ;; Set my style for the current buffer
+  (c-add-style "BigFun" c-default-style t)
+
+  ;; 4-space tabs
+  ;; (setq tab-width 4)
+
+  ;; Newline indents, semi-colon wont
+  (define-key c++-mode-map "\C-m" 'newline-and-indent)
+  (setq c-hanging-semi&comma-criteria '((lambda () 'stop)))
+  
+  ;; Additional style stuff
+  (c-set-offset 'member-init-intro '++)
+
+  ;; No hungry backspace
+  (c-toggle-auto-hungry-state -1)
+  
+  ;; Abbrevation expansion
+  (abbrev-mode 1)
 
   ;; Format the given file as a header file
   (defun header-format ()
@@ -332,7 +347,7 @@
        (setq CorrespondingFileName (concat BaseFileName ".h")))
     (if (string-match "\\.h" buffer-file-name)
        (if (file-exists-p (concat BaseFileName ".c")) (setq CorrespondingFileName (concat BaseFileName ".c"))
-	   (setq CorrespondingFileName (concat BaseFileName ".cpp"))))
+     (setq CorrespondingFileName (concat BaseFileName ".cpp"))))
     (if (string-match "\\.hin" buffer-file-name)
        (setq CorrespondingFileName (concat BaseFileName ".cin")))
     (if (string-match "\\.cin" buffer-file-name)
@@ -350,26 +365,12 @@
   
   (define-key c++-mode-map "\ec" 'find-corresponding-file)
   (define-key c++-mode-map "\eC" 'find-corresponding-file-other-window)
-
-
-  ;; Unique comments style
-  (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
-  (make-face 'font-lock-fixme-face)
-  (make-face 'font-lock-note-face)
-  (mapc (lambda (mode)
-	  (font-lock-add-keywords
-	   mode
-	   '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
-	     ("\\<\\(NOTE\\)" 1 'font-lock-note-face t))))
-	fixme-modes)
-  (modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
-  (modify-face 'font-lock-note-face "Dark Green" nil nil t nil t nil nil)
 )
 
+(add-hook 'c-mode-common-hook 'big-fun-c-hook)
 ;; set "gnu" style indenting for c
-  (setq c-default-style "Linux"
-	c-basic-offset 4)
-
+  ; (setq c-default-style "Linux"
+  ; c-basic-offset 4)
 ;; //////////////////////////////// End of C/C++ style
 
 ;; //////  C++ configuration by external packages
@@ -429,7 +430,6 @@
 (global-set-key [f8] 'code-compile)
 ;; ///// End of C++ configuration //////
 
-(setenv "PATH" "D:\Program Files\Inkscape\bin:$PATH" t)
 ;; //////////////////////////////////////// Auto-generated after first running.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -445,5 +445,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(mode-line ((t (:background "gray30" :box (:line-width (1 . 1) :color "red") :height 0.7 :family "DejaVu Sans")))))
 (put 'upcase-region 'disabled nil)
