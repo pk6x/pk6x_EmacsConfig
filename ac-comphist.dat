@@ -1,330 +1,348 @@
-((("setenv" .
-   [1 0 0 0 0 0])
-  ("cout" .
-   [1 0 0 0])
-  ("print" .
-   [1 0 0 0 0])
-  ("mystring" .
-   [1 0 0 1 0 0 0 1])
-  ("std" .
-   [5 0 0])
-  ("file-name-sans-extension" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("BaseFileName" .
-   [0 0 0 0 0 0 1 0 0 0 0 0])
-  ("ifndef" .
-   [0 0 0 2 0 1])
-  ("endif" .
-   [0 0 0 1 0])
-  ("c-default-style" .
-   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
-  ("C-deletechar" .
-   [0 0 0 0 0 0 0 0 0 0 0 1])
-  ("setq" .
-   [13 0 0 0])
-  ("set-cursor-color" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("global-linum-mode" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("l" .
-   [3])
-  ("frame-title-format" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("list" .
-   [1 0 0 0])
-  ("system-name" .
-   [0 0 0 0 0 0 1 0 0 0 0])
-  ("buffer-file-name" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("dired-directory" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("global-font-lock-mode" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("show-paren-delay" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
-  ("show-paren-style" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("parenthesis" .
-   [0 0 0 0 0 0 0 0 0 0 1])
-  ("show-paren-mode" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("undo-limit" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("undo-strong-limit" .
-   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
-  ("define-key" .
-   [2 0 0 0 0 0 0 0 0 49])
-  ("global-map" .
-   [0 0 0 0 0 0 0 0 0 48])
-  ("find-file" .
-   [0 0 0 0 0 0 0 0 1])
-  ("find-file-other-tab" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
-  ("find-file-other-window" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("global-set-key" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("read-kbd-macro" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("ido-switch-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("ido-switch-buffer-other-window" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("scroll-step" .
-   [1 0 0 0 0 0 0 0 0 0 0])
-  ("display-time" .
-   [0 0 0 0 0 0 0 0 0 0 0 1])
-  ("next-line-add-newlines" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
-  ("nil" .
-   [5 0 0])
-  ("setq-default" .
-   [0 0 0 0 0 0 0 1 0 0 0 0])
-  ("truncate-lines" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("truncate-partial-width-windows" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("split-window-horizontally" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
-  ("text-mode-map" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("save-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 2])
-  ("default" .
-   [1 0 0 0 1 0 0])
-  ("default-frame-alist" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("left" .
-   [1 0 0 0])
-  ("set-mark-command" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3])
-  ("append-as-kill" .
-   [0 0 0 0 0 0 0 0 1 1 0 0 0 0])
-  ("yank" .
-   [2 0 0 0])
-  ("kill-region" .
-   [1 0 0 0 0 0 0 0 0 0 0])
-  ("f8" .
-   [1 0])
-  ("M-up" .
-   [1 0 0 0])
-  ("previous-blank-line" .
-   [0 0 0 0 0 0 0 0 0 0 0 3 0 0 1 0 0 0 0])
-  ("M-down" .
-   [1 0 0 0 0 0])
-  ("next-blank-line" .
-   [0 0 0 0 0 0 0 0 0 2 0 1 0 0 0])
-  ("M-right" .
+((("zenburn" .
    [1 0 0 0 0 0 0])
-  ("forward-word" .
-   [0 0 0 0 0 0 0 0 0 0 0 2])
-  ("M-left" .
-   [0 0 0 0 0 1])
-  ("backward-word" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("global" .
-   [0 0 0 0 0 4])
-  ("View-back-to-mark" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
-  ("exchange-point-and-mark" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("f9" .
-   [1 0])
-  ("fringe" .
-   [0 0 0 1 0 0])
-  ("first-error" .
-   [0 0 0 0 0 0 0 0 0 0 1])
-  ("f10" .
-   [1 0 0])
-  ("previous-error" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("f11" .
-   [1 0 0])
-  ("next-error" .
-   [0 0 0 0 0 0 0 0 0 2])
-  ("goto-line" .
-   [1 0 0 0 0 0 0 0 0])
-  ("imenu" .
-   [1 0 0 0 0])
-  ("copy-region-as-kill" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("rotate-yank-pointer" .
-   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("global-unset-key" .
-   [0 0 2 0 0 0 0 0 0 0 0 1 0 0 0 0])
-  ("undo" .
-   [1 0 0 0])
-  ("upcase-word" .
-   [0 0 0 0 0 0 0 0 0 0 1])
-  ("captilize-word" .
-   [0 0 0 0 0 1 0 0 0 0 0 0 0 0])
-  ("file-nlinks" .
-   [0 0 0 0 0 1 0 0 0 0 0])
-  ("file-precious-flag" .
-   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
-  ("fill-paragraph" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("defun" .
-   [8 0 0 0 0])
-  ("old-word" .
-   [0 0 0 0 0 1 0 1])
-  ("new-word" .
-   [0 0 0 0 0 0 0 2])
-  ("interactive" .
-   [0 0 0 0 0 0 0 0 0 0 7])
-  ("save-excursion" .
-   [0 0 0 0 0 0 0 1 0 0 0 0 0 1])
-  ("save-restriction" .
-   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
-  ("narrow-to-region" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("mark" .
-   [2 0 0 0])
-  ("point" .
-   [2 0 0 0 0])
-  ("beginning-of-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("replace-string" .
-   [1 0 0 0 0 0 0 0 0 0 0 0 0 3])
-  ("replace-in-region" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("query-replace" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("backward-kill-" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("backward-kill-word" .
+  ("package-initialize" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("M-delete" .
-   [1 0 0 0 0 0 0 0])
-  ("kill-word" .
-   [0 0 0 0 0 0 0 0 1])
-  ("start-kbd-macro" .
+  ("package-install" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("package-archive" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("end-kbd-macro" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("call-last-kbd-macro" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("revert-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("kill-this-buffer" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("c-set-offset" .
-   [0 0 0 0 0 0 0 0 0 0 0 1])
-  ("member-init-intro" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
-  ("++" .
-   [1 0])
-  ("c-toggle-auto-hungry-state" .
-   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("-1" .
-   [4 0])
-  ("c++-mode" .
-   [0 0 0 0 0 0 0 1])
-  ("c++-mode-map" .
-   [0 0 0 0 0 0 0 0 0 1 1 0])
-  ("newline-and-indent" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("c-hanging-braces-alist" .
-   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("c-hanging-semi&comma-criteria" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("lambda" .
-   [1 0 0 0 0 0])
-  ("stop" .
-   [1 0 0 0])
-  ("internal-auto-fill" .
-   [0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("forward-line" .
-   [2 0 0 0 0 0 0 0 0 0 0 2])
-  ("search-forward-regexp" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1])
-  ("search-forward" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("search-backward-regexp" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("C-right" .
-   [1 0 0 0 0 0 0])
-  ("C-left" .
-   [1 0 0 0 0 0])
-  ("backup" .
+  ("s" .
+   [1])
+  ("hl-line" .
+   [0 0 1 0 0 0 0])
+  ("default-directory" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("abbrev-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("fFov" .
+   [0 0 0 1])
+  ("vector" .
    [0 0 0 0 1 0])
-  ("C-up" .
-   [1 0 0 0])
-  ("home" .
-   [1 0 0 0])
-  ("beginning-of-line" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("end" .
-   [1 0 0])
-  ("end-of-line" .
+  ("triangle" .
+   [1 0 0 0 0 0 0 0])
+  ("vec3d" .
+   [2 0 0 0 0])
+  ("struct" .
+   [0 0 1 1 0 0])
+  ("require" .
+   [2 0 0 0 0 0 0])
+  ("load-path" .
+   [0 0 0 0 0 0 0 0 1])
+  ("add-to-list" .
    [0 0 0 0 0 0 0 0 0 0 1])
-  ("pgup" .
-   [3 0 0 0])
-  ("forward-page" .
-   [0 0 0 0 0 0 0 0 0 0 0 1])
-  ("pgdown" .
+  ("mouse-2" .
+   [1 0 0 0 0 0 0])
+  ("format-time-string" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("insert" .
+   [1 0 0 0 0 0])
+  ("insert-timeofday" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("ToString" .
+   [0 0 0 1 0 0 0 1])
+  ("top" .
+   [1 0 0])
+  ("t" .
+   [2])
+  ("FromString" .
+   [0 0 0 0 2 0 0 0 0 0])
+  ("if" .
+   [1 1])
+  ("mouse-set-region" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("mouse-set-font" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("transient-mark-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4])
+  ("activate" .
+   [0 0 0 0 0 0 0 2])
+  ("action" .
+   [0 0 0 0 1 0])
+  ("no-bloody-t-m-m" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
+  ("after" .
+   [2 0 0 0 0])
+  ("defadvice" .
+   [0 0 0 0 0 1 0 0 2])
+  ("append-next-kill" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("scroll-other-window-down" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("C-prior" .
+   [0 0 0 0 0 1 0])
+  ("scroll-other-window" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("C-next" .
    [1 0 0 0 0 0])
   ("backward-page" .
    [0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("C-next" .
+  ("pgdown" .
    [1 0 0 0 0 0])
-  ("scroll-other-window" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
-  ("C-prior" .
-   [0 0 0 0 0 1 0])
-  ("scroll-other-window-down" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("append-next-kill" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("defadvice" .
-   [0 0 0 0 0 1 0 0 2])
-  ("after" .
-   [2 0 0 0 0])
-  ("no-bloody-t-m-m" .
-   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
-  ("action" .
-   [0 0 0 0 1 0])
-  ("activate" .
-   [0 0 0 0 0 0 0 2])
-  ("transient-mark-mode" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4])
-  ("mouse-set-font" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("mouse-set-region" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-  ("if" .
-   [1 1])
-  ("FromString" .
-   [0 0 0 0 2 0 0 0 0 0])
-  ("t" .
-   [2])
-  ("top" .
-   [1 0 0])
-  ("ToString" .
-   [0 0 0 1 0 0 0 1])
-  ("insert-timeofday" .
-   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("insert" .
-   [1 0 0 0 0 0])
-  ("format-time-string" .
-   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-  ("mouse-2" .
-   [1 0 0 0 0 0 0])
-  ("add-to-list" .
+  ("forward-page" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("pgup" .
+   [3 0 0 0])
+  ("end-of-line" .
    [0 0 0 0 0 0 0 0 0 0 1])
-  ("load-path" .
-   [0 0 0 0 0 0 0 0 1])
-  ("require" .
-   [1 0 0 0 0 0 0])
-  ("struct" .
-   [0 0 1 1 0 0])
-  ("vec3d" .
-   [2 0 0 0 0])
-  ("triangle" .
-   [1 0 0 0 0 0 0 0])
-  ("vector" .
+  ("end" .
+   [1 0 0])
+  ("beginning-of-line" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("home" .
+   [1 0 0 0])
+  ("C-up" .
+   [1 0 0 0])
+  ("backup" .
    [0 0 0 0 1 0])
-  ("fFov" .
-   [0 0 0 1])
-  ("abbrev-mode" .
-   [1 0 0 0 0 0 0 0 0 0 0])))
+  ("C-left" .
+   [1 0 0 0 0 0])
+  ("C-right" .
+   [1 0 0 0 0 0 0])
+  ("search-backward-regexp" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("search-forward" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("search-forward-regexp" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1])
+  ("forward-line" .
+   [2 0 0 0 0 0 0 0 0 0 0 2])
+  ("internal-auto-fill" .
+   [0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("stop" .
+   [1 0 0 0])
+  ("lambda" .
+   [1 0 0 0 0 0])
+  ("c-hanging-semi&comma-criteria" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("c-hanging-braces-alist" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("newline-and-indent" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("c++-mode-map" .
+   [0 0 0 0 0 0 0 0 0 1 1 0])
+  ("c++-mode" .
+   [0 0 0 0 0 0 0 1])
+  ("-1" .
+   [4 0])
+  ("c-toggle-auto-hungry-state" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("++" .
+   [1 0])
+  ("member-init-intro" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("c-set-offset" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("kill-this-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("revert-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("call-last-kbd-macro" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("end-kbd-macro" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("start-kbd-macro" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("kill-word" .
+   [0 0 0 0 0 0 0 0 1])
+  ("M-delete" .
+   [1 0 0 0 0 0 0 0])
+  ("backward-kill-word" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("backward-kill-" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("query-replace" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("replace-in-region" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("replace-string" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("beginning-of-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("point" .
+   [2 0 0 0 0])
+  ("mark" .
+   [2 0 0 0])
+  ("narrow-to-region" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("save-restriction" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("save-excursion" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 1])
+  ("interactive" .
+   [0 0 0 0 0 0 0 0 0 0 7])
+  ("new-word" .
+   [0 0 0 0 0 0 0 2])
+  ("old-word" .
+   [0 0 0 0 0 1 0 1])
+  ("defun" .
+   [8 0 0 0 0])
+  ("fill-paragraph" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("file-precious-flag" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("file-nlinks" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("captilize-word" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("upcase-word" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("undo" .
+   [1 0 0 0])
+  ("global-unset-key" .
+   [0 0 2 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("rotate-yank-pointer" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("copy-region-as-kill" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("imenu" .
+   [1 0 0 0 0])
+  ("goto-line" .
+   [1 0 0 0 0 0 0 0 0])
+  ("next-error" .
+   [0 0 0 0 0 0 0 0 0 2])
+  ("f11" .
+   [1 0 0])
+  ("previous-error" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("f10" .
+   [1 0 0])
+  ("first-error" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("fringe" .
+   [0 0 0 1 0 0])
+  ("f9" .
+   [1 0])
+  ("exchange-point-and-mark" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("View-back-to-mark" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("global" .
+   [0 0 0 0 0 4])
+  ("backward-word" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("M-left" .
+   [0 0 0 0 0 1])
+  ("forward-word" .
+   [0 0 0 0 0 0 0 0 0 0 0 2])
+  ("M-right" .
+   [1 0 0 0 0 0 0])
+  ("next-blank-line" .
+   [0 0 0 0 0 0 0 0 0 2 0 1 0 0 0])
+  ("M-down" .
+   [1 0 0 0 0 0])
+  ("previous-blank-line" .
+   [0 0 0 0 0 0 0 0 0 0 0 3 0 0 1 0 0 0 0])
+  ("M-up" .
+   [1 0 0 0])
+  ("f8" .
+   [1 0])
+  ("kill-region" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("yank" .
+   [2 0 0 0])
+  ("append-as-kill" .
+   [0 0 0 0 0 0 0 0 1 1 0 0 0 0])
+  ("set-mark-command" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("left" .
+   [1 0 0 0])
+  ("default-frame-alist" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("default" .
+   [1 0 0 0 1 0 0])
+  ("save-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 2])
+  ("text-mode-map" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("split-window-horizontally" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("truncate-partial-width-windows" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("truncate-lines" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("setq-default" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("nil" .
+   [6 0 0])
+  ("next-line-add-newlines" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("display-time" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("scroll-step" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("ido-switch-buffer-other-window" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ido-switch-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("read-kbd-macro" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("find-file-other-window" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("find-file-other-tab" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("find-file" .
+   [0 0 0 0 0 0 0 0 1])
+  ("global-map" .
+   [0 0 0 0 0 0 0 0 0 48])
+  ("define-key" .
+   [2 0 0 0 0 0 0 0 0 49])
+  ("undo-strong-limit" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("undo-limit" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("show-paren-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("parenthesis" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("show-paren-style" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("show-paren-delay" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("global-font-lock-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("dired-directory" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("buffer-file-name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("system-name" .
+   [0 0 0 0 0 0 1 0 0 0 0])
+  ("list" .
+   [1 0 0 0])
+  ("frame-title-format" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("l" .
+   [3])
+  ("global-linum-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("set-cursor-color" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("setq" .
+   [16 0 0 0])
+  ("C-deletechar" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("c-default-style" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("endif" .
+   [0 0 0 1 0])
+  ("ifndef" .
+   [0 0 0 2 0 1])
+  ("BaseFileName" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("file-name-sans-extension" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("std" .
+   [5 0 0])
+  ("mystring" .
+   [1 0 0 1 0 0 0 1])
+  ("print" .
+   [1 0 0 0 0])
+  ("cout" .
+   [1 0 0 0])
+  ("setenv" .
+   [1 0 0 0 0 0])
+  ("load-theme" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("busybee-theme" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])))
