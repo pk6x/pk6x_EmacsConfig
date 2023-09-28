@@ -10,7 +10,11 @@
 ;; change the font
 (set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
 
-;; (set-face-background 'hl-=line "midnight blue")
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "c1a256")
+
+;; load-theme
+;; (load-theme 'zenburn t)
 
 ;; set cursor color
 (set-cursor-color "green")
@@ -422,6 +426,8 @@
 
 ;; //////////////////////////////////////// End of Customised keybinds
 
+;; //////////////////////////////////////// External packages
+
 ;; //////////////////////////////////////// Auto-generated after first running.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -429,13 +435,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tsdh-dark))
+ '(custom-safe-themes
+   '("f366d4bc6d14dcac2963d45df51956b2409a15b770ec2f6d730e73ce0ca5c8a7" "1c7635fd451cc7834a4ec6ff92bf656d846cf75d9153ff01618f0d3e80323f04" default))
  '(gdb-many-windows t)
- '(package-selected-packages '(yasnippet-snippets which-key try use-package))
+ '(package-selected-packages
+   '(zenburn-theme busybee-theme yasnippet-snippets which-key try use-package))
  '(warning-suppress-types '((auto-save) (auto-save) (auto-save) (auto-save))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(hl-line ((t (:extend t :background "gray17"))))
  '(mode-line ((t (:background "gray30" :box (:line-width (1 . 1) :color "red") :height 0.7 :family "DejaVu Sans")))))
 (put 'upcase-region 'disabled nil)
