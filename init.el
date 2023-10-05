@@ -470,5 +470,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:extend t :background "gray17"))))
- '(mode-line ((t (:background "gray30" :box (:line-width (1 . 1) :color "red") :height 0.7 :family "DejaVu Sans")))))
+ '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436" :box (:line-width (3 . 3) :color "blue") :weight normal :height 0.8))))
+ '(mode-line-buffer-id ((t (:slant italic :weight bold))))
+ '(mode-line-inactive ((t (:background "#555753" :foreground "#eeeeec" :weight normal :height 0.8)))))
 (put 'upcase-region 'disabled nil)
