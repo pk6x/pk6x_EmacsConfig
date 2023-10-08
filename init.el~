@@ -73,6 +73,7 @@
 ;; Set high limit for undo history
 (setq undo-limit 2000000)
 (setq undo-strong-limit 4000000)
+;;(setq max-specpdl-size 13000)
 
 ;; Insert timd of the day
 (defun insert-timeofday ()
@@ -91,13 +92,12 @@
 (defadvice mouse-set-region-1 (after no-bloody-t-m-m activate)
   (if transient-mark-mode (setq transient-mark-mode nil)))
 
-;; Perform copy-region-as-kill as an append
-(defun append-as-kill ()
-  (interactive)
-  (append-next-kill)
-  (copy-region-as-kill (mark) (point))
-  )
-
+;; Replace a string without moving point
+(defun replace-string (FromString ToString)
+  (interactive "sReplace: \nsReplace: %s With: ")
+  (save-excursion
+    (replace-string FromString ToString)
+    ))
 
 ;; Perform a replace-string in the current region
 (defun replace-in-region (old-word new-word)
@@ -105,16 +105,9 @@
   (save-excursion (save-restriction
         (narrow-to-region (mark) (point))
         (beginning-of-buffer)
-        (replace-string old-word new-word)
+        (replace-regexp-in-region old-word new-word)
         ))
   )
-
-;; Replace a string without moving point
-(defun replace-string (FromString ToString)
-  (interactive "sReplace: \nsReplace: %s With: ")
-  (save-excursion
-    (replace-string FromString ToString)
-    ))
 
 ;; Navigaiton
 ;; Moves to the previous line containing nothing but whitespace
@@ -381,13 +374,12 @@
 (global-set-key (read-kbd-macro "\eB") 'ido-switch-buffer-other-window)
 (define-key text-mode-map "\es" 'save-buffer)
 (define-key global-map "\e " 'set-mark-command)
-(define-key global-map "\eq" 'append-as-kill)
-(define-key global-map "\ea" 'yank)
-(define-key global-map "\ez" 'kill-region)
-(define-key global-map [M-up] 'previous-blank-line)
-(define-key global-map [M-down] 'next-blank-line)
-(define-key global-map [M-right] 'forward-word)
-(define-key global-map [M-left] 'backward-word)
+(define-key global-map "\eq" 'copy-region-as-kill)
+(define-key global-map "\ea" 'forward-sentence)
+(define-key global-map "\eA" 'backward-sentence)
+;;(define-key global-map "\ez" ')
+(define-key global-map "\em" 'forward-word)
+(define-key global-map "\eM" 'backward-word)
 (define-key global-map "\e:" 'View-back-to-mark)
 (define-key global-map "\e;" 'exchange-point-and-mark)
 (define-key global-map [f9] 'first-error)
@@ -425,11 +417,28 @@
 (define-key global-map [end] 'end-of-line)
 (define-key global-map [pgup] 'forward-page)
 (define-key global-map [pgdown] 'backward-page)
-(define-key global-map [C-next] 'scroll-other-window)
-(define-key global-map [C-prior] 'scroll-other-window-down)
+(define-key global-map [M-down] 'scroll-other-window)
+(define-key global-map [M-up] 'scroll-other-window-down)
+(define-key global-map [M-left] 'previous-buffer)
+(define-key global-map [M-right] 'next-buffer)
 (define-key global-map "\ew" 'other-window)
-(define-key global-map "\ec" 'kill-ring-save)
 (define-key global-map "\ep" 'yank)
+
+;; Insert new line below current line
+;; and move cursor to new line
+;; it will also indent newline
+(global-set-key (kbd "<C-return>") (lambda ()
+                   (interactive)
+                   (end-of-line)
+                   (newline-and-indent)))
+;; Insert new line above current line
+;; and move cursor to previous line (newly inserted line)
+;; it will also indent newline
+(global-set-key (kbd "<C-S-return>") (lambda ()
+                       (interactive)
+                       (beginning-of-line)
+                       (newline-and-indent)
+                       (previous-line)))
 ;; //////////////////////////////////////// End of Customised keybinds
 
 ;; //////////////////////////////////////// External packages
@@ -455,6 +464,7 @@
  '(imenu-auto-rescan-maxout 500000)
  '(kept-new-versions 5)
  '(kept-old-versions 5)
+ '(kill-whole-line nil)
  '(make-backup-file-name-function 'ignore)
  '(make-backup-files nil)
  '(mosue-wheel-follow-mouse nil)
