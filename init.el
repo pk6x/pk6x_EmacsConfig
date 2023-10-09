@@ -359,7 +359,7 @@
     (set (make-local-variable 'compile-command)
      (let ((file (file-name-nondirectory buffer-file-name)))
        (format "%s -o %s %s"
-           (if  (equal (file-name-extension file) "cpp" "c") "clang++" "clang" )
+           (if  (equal (file-name-extension file) "cpp") "clang++" "clang" )
            (file-name-sans-extension file)
            file)))
     (compile compile-command)))
