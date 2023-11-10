@@ -85,7 +85,7 @@
   ("C-deletechar" .
    [0 0 0 0 0 0 0 0 0 0 0 1])
   ("setq" .
-   [17 0 0 0])
+   [18 0 0 0])
   ("set-cursor-color" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("global-linum-mode" .
@@ -397,7 +397,7 @@
   ("hl-line" .
    [0 0 1 0 0 0 0])
   ("s" .
-   [1])
+   [2])
   ("package-archive" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("package-install" .
@@ -459,7 +459,7 @@
   ("slick-copy" .
    [0 0 0 0 0 1 0 0 0 0])
   ("ss" .
-   [1 0])
+   [2 0])
   ("dd" .
    [1 0])
   ("replace-regexp-in-region" .
