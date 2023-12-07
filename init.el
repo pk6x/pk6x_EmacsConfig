@@ -8,7 +8,7 @@
 ;;(setq default-directory "D:/personal_projects/programming")
 
 ;; change the font
-(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
+(set-face-attribute 'default nil :font "consolas-11" :weight 'bold)
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
@@ -30,14 +30,14 @@
 
 ;; Set inital window width/height
 ;; @monitor/1440p @Windows
-(setq default-frame-alist
-      '((top . 3) (left . 1) (width . 89) (height . 36)))
+;;(setq default-frame-alist
+;;      '((top . 3) (left . 1) (width . 89) (height . 40)))
 
 ;; Startup windowing
 (setq next-line-add-newlines nil)
 (setq-default truncate-lines t)
-(setq truncate-partial-width-windows nil)
-(split-window-horizontally)
+;;(setq truncate-partial-width-windows nil)
+;;(split-window-horizontally)
 
 ;; disable menu on startup
 ;; (menu-bar-mode -1)
