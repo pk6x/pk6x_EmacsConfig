@@ -29,6 +29,10 @@ M-n "Jump to the next Flycheck error"
 M-N "Jump to the previous Flycheck error"
 M-":" "Jump back to the last mark location"
 
+M-[RIGHT or LEFT] "Cycle between opened buffers"
+
+C-x C-q "Toggle the read-only mode one and off"
+
 C-M-h "Highlights a region block {}"
 
 C-SPACE "Sets a mark"
