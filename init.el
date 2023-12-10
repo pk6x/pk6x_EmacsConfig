@@ -5,10 +5,10 @@
 (setq inhibit-splash-screen t)
 
 ;; Default find path
-(setq default-directory "D:/personal_projects/programming")
+;;(setq default-directory "D:/personal_projects/programming")
 
 ;; change the font
-(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
+(set-face-attribute 'default nil :font "Cousine-13" :weight 'bold)
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
@@ -30,8 +30,8 @@
 
 ;; Set inital window width/height
 ;; @monitor/1440p @Windows
-(setq default-frame-alist
-      '((top . 5) (left . 0) (width . 129) (height . 49)))
+;;(setq default-frame-alist
+;;      '((top . 7) (left . 0) (width . 129) (height . 49)))
 
 ;; Startup windowing
 (setq next-line-add-newlines nil)
@@ -323,8 +323,8 @@
 (use-package which-key :ensure t :config (which-key-mode))
 
 ;; yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
+;;(require 'yasnippet)
+;;(yas-global-mode 1)
 
 ;; auto-commplete
 (use-package auto-complete
@@ -562,7 +562,7 @@
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount '(15))
  '(package-selected-packages
-   '(ample-theme zenburn-theme busybee-theme yasnippet-snippets which-key try use-package))
+   '(ample-theme zenburn-theme busybee-theme which-key try use-package))
  '(version-control nil)
  '(warning-suppress-types '((auto-save) (auto-save) (auto-save) (auto-save))))
 (custom-set-faces
@@ -571,7 +571,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:extend t :background "gray17"))))
- '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436" :box (:line-width (3 . 3) :color "blue") :weight normal :height 0.8))))
- '(mode-line-buffer-id ((t (:slant italic :weight bold))))
- '(mode-line-inactive ((t (:background "#555753" :foreground "#eeeeec" :weight normal :height 0.8)))))
+ '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436" :box (:line-width 3 :color "blue") :weight normal))))
+ '(mode-line-buffer-id ((t (:slant italic :weight bold)))))
 (put 'upcase-region 'disabled nil)
