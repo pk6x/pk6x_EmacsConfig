@@ -22,6 +22,8 @@ M-M "Move backward by words"
 
 C-M-h "Highlights a region block {}"
 
+M-j "Index: jump to a function by name"
+
 C-SPACE "Sets a mark"
 M-":" "Jump back to the last mark location"
 C-u C-SPACE "Mark ring previous location popping"
