@@ -1,17 +1,20 @@
-;;; Summary --- Beginning of my Emacs init file:
-;;; Commentary:
+;;; Summary --- Beginning of my Emacs init file: Commentary:
 ;;;;; ///////////////////////////////// Startup & style
 ;; inhibit splash screen
 (setq inhibit-splash-screen t)
 
 ;; Default find path
-;;(setq default-directory "D:/personal_projects/programming")
+(setq default-directory "D:/personal_projects/programming")
 
 ;; change the font
-(set-face-attribute 'default nil :font "Cousine-13" :weight 'bold)
+(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
+
+;; add en dash character to the word constituent syntax class
+(modify-syntax-entry ?– "w")
+(global-superword-mode)
 
 ;; load-theme
 ;; (load-theme 'zenburn t)
@@ -30,14 +33,14 @@
 
 ;; Set inital window width/height
 ;; @monitor/1440p @Windows
-;;(setq default-frame-alist
-;;      '((top . 7) (left . 0) (width . 129) (height . 49)))
+(setq default-frame-alist
+      '((top . 5) (left . 0) (width . 129) (height . 49)))
 
 ;; Startup windowing
 (setq next-line-add-newlines nil)
 (setq-default truncate-lines t)
 (setq truncate-partial-width-windows nil)
-(split-window-horizontally)
+;;(split-window-horizontally)
 
 ;; disable menu on startup
 ;; (menu-bar-mode -1)
@@ -305,6 +308,11 @@
 )
 
 (add-hook 'c-mode-common-hook 'big-fun-c-hook)
+
+;; add en dash word "hyphenated compound word" as word constituents in the syntax table
+(add-hook 'c++-mode-hook 'superword-mode)
+(add-hook 'c++-mode-hook (lambda () (modify-syntax-entry ?- "w")))
+
 ;; set "gnu" style indenting for c
   ; (setq c-default-style "Linux"
   ; c-basic-offset 4)
@@ -323,8 +331,8 @@
 (use-package which-key :ensure t :config (which-key-mode))
 
 ;; yasnippet
-;;(require 'yasnippet)
-;;(yas-global-mode 1)
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; auto-commplete
 (use-package auto-complete
@@ -504,8 +512,8 @@
 (define-key global-map [C-left] 'backward-word)
 (define-key global-map [C-up] 'previous-blank-line)
 (define-key global-map [C-down] 'next-blank-line)
-(define-key global-map "\ea" 'beginning-of-line)
-(define-key global-map "\eA" 'end-of-line)
+;(define-key global-map "\ea" 'beginning-of-line)
+;(define-key global-map "\eA" 'end-of-line)
 (define-key global-map [pgup] 'forward-page)
 (define-key global-map [pgdown] 'backward-page)
 ;(define-key global-map [M-down] 'scroll-other-window)
@@ -534,6 +542,16 @@
 
 ;; //////////////////////////////////////// External packages
 
+;; modeline configuration
+(setq-default mode-line-format nil)
+(setq-default mode-line-format
+	      '("%e"
+		"  "
+		(:eval (format "%s" (buffer-file-name)))
+		"  "
+		(:eval (format "%s" (propertize (symbol-name major-mode) 'face 'bold)))
+		))
+
 ;; //////////////////////////////////////// Auto-generated after first running.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -545,9 +563,9 @@
  '(auto-save-list-file-prefix nil)
  '(auto-save-timeout 0)
  '(auto-show-mode t t)
- '(custom-enabled-themes '(tango-dark))
+ '(custom-enabled-themes '(amgun+tango-dark))
  '(custom-safe-themes
-   '("bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "f366d4bc6d14dcac2963d45df51956b2409a15b770ec2f6d730e73ce0ca5c8a7" "1c7635fd451cc7834a4ec6ff92bf656d846cf75d9153ff01618f0d3e80323f04" default))
+   '("5219ca6c3213e7f148831b15759edf43ed5dc6a9c63c2aaef2e5a1808dad1cc0" "4480a982e1db2aa509c2de8b05fe5fa295ef3e7338a9411c94c75d62bc4b1443" "f3f88f69b800f1d010b1533080650ef45fc813ac3cf0a6b007be795d9023a8cb" "7da57f796645c3277049df3195934b14e88e34b517fa6a76f99a031f8bebd91e" "d9871b56dd9151c0cbbccee9385c6e1670bbda5da4e3b30b58cb456792b29511" "f9cad8c375c78493243651c99a9d53317a702e2537cc57034b1c4443a7e3255d" "ee5e691ed0054ac41dc80c06765d3ab68640d64486631be84c796b6ff52bad1f" "729267e9b4bdbefeae5b316bd86bc41a532b08c62a87f95a269ff7951ea802c2" "379041523d033ee1d2ed479e519d01ea94ba08bb6b57d7b589995414584f2bf6" "6bdbd8cc485d400466a33b9592e7452daa1f12246030ef24909d72af9589ed35" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "f366d4bc6d14dcac2963d45df51956b2409a15b770ec2f6d730e73ce0ca5c8a7" "1c7635fd451cc7834a4ec6ff92bf656d846cf75d9153ff01618f0d3e80323f04" default))
  '(delete-auto-save-files nil)
  '(delete-old-versions 'other)
  '(gdb-many-windows t)
@@ -558,19 +576,15 @@
  '(kill-whole-line nil)
  '(make-backup-file-name-function 'ignore)
  '(make-backup-files nil)
- '(mosue-wheel-follow-mouse nil)
- '(mouse-wheel-progressive-speed nil)
- '(mouse-wheel-scroll-amount '(15))
- '(package-selected-packages
-   '(ample-theme zenburn-theme busybee-theme which-key try use-package))
- '(version-control nil)
- '(warning-suppress-types '((auto-save) (auto-save) (auto-save) (auto-save))))
+ '(mode-line-compact 'long)
+ '(mosue-wheel-follow-mouse nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(hl-line ((t (:extend t :background "gray17"))))
- '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436" :box (:line-width 3 :color "blue") :weight normal))))
- '(mode-line-buffer-id ((t (:slant italic :weight bold)))))
+ '(hl-line ((t (:extend t :background "blue"))))
+ '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436" :box (:line-width (3 . 3) :color "blue") :weight normal :height 0.8))))
+ '(mode-line-buffer-id ((t (:slant italic :weight bold))))
+ '(mode-line-inactive ((t (:background "#555753" :foreground "#eeeeec" :weight normal :height1 0.8)))))
 (put 'upcase-region 'disabled nil)

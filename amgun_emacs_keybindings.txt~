@@ -10,15 +10,17 @@ C-p "Move cursor down"
 C-n "Move cursor up"
 C-f "Move cursor forward"
 C-b "Move cursor backward"
-M-a "Beginning of current line"
-OR C-a "Beginning of current line"
-M-A "End of current line"
-OR C-e "End of current line"
+
+C-a "Jump to the beginning of current line"
+C-e "Jump to the end of current line"
+M-a "Jump to the beginning of a written sentence backward"
+M-e "Jump to the end of a written sentence forward"
 
 M-h "Move foward by lines"
 M-H "Move backward by lines"
 M-m "Move forward by words"
 M-M "Move backward by words"
+
 
 C-M-n "(forward-list)Move forward over a parenthetical group"
 C-M-p "(backward-list)Move backward over a parenthetical group"
