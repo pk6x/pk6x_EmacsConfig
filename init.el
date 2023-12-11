@@ -7,10 +7,10 @@
 (setq default-directory "D:/personal_projects/programming")
 
 ;; change the font
-(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
+;;(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
 
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "c1a256")
+;;(global-hl-line-mode 1)
+;;(set-face-background 'hl-line "c1a256")
 
 ;; add en dash character to the word constituent syntax class
 (modify-syntax-entry ?– "w")
@@ -20,7 +20,7 @@
 ;; (load-theme 'zenburn t)
 
 ;; set cursor color
-(set-cursor-color "green")
+;;(set-cursor-color "green")
 
 ;; Disabling middle mouse click
 (global-unset-key [mouse-2])
@@ -46,24 +46,24 @@
 ;; (menu-bar-mode -1)
 
 ;; disable tools on startup
-(tool-bar-mode -1)
+;;(tool-bar-mode -1)
 
 ;; disable scroll bar on startup
-(scroll-bar-mode -1)
+;(scroll-bar-mode -1)
 
 ;; Enabling line number mode
-(global-display-line-numbers-mode)
+;;(global-display-line-numbers-mode)
 
 ;; Powerful info mini-menu
-(setq frame-title-format
-      (list (format"%s %%s: %%j " (system-name))
-      '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+;;(setq frame-title-format
+;;      (list (format"%s %%s: %%j " (system-name))
+;;      '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 ;; Smooth scrolling
-(setq scroll-step 3)
+;;(setq scroll-step 3)
 
 ;; Display time
-(display-time)
+;;(display-time)
 
 ;; Always syntax highlighting
 ;; (global-font-lock-mode 1)
@@ -79,10 +79,10 @@
 ;;(setq max-specpdl-size 13000)
 
 ;; Insert timd of the day
-(defun insert-timeofday ()
-  (interactive "*")
-  (insert (format-time-string "---------------- %a, %d %b %y: %I:%M%p"))
-  )
+;;(defun insert-timeofday ()
+;;  (interactive "*")
+;;  (insert (format-time-string "---------------- %a, %d %b %y: %I:%M%p"))
+;;  )
 ;; //////////////////////////////// End of Startup & style
 
 ;; //////////////////////////////// Customised keybining
@@ -350,8 +350,8 @@
   (global-flycheck-mode t))
 
 ;; C++ font
-(use-package modern-cpp-font-lock
-  :ensure t)
+;;(use-package modern-cpp-font-lock
+;;  :ensure t)
 
 ;; Magit
 (use-package magit
@@ -367,7 +367,7 @@
     (set (make-local-variable 'compile-command)
      (let ((file (file-name-nondirectory buffer-file-name)))
        (format "%s -o %s %s"
-           (if  (equal (file-name-extension file) "cpp") "clang++" "clang" )
+           (if  (equal (file-name-extension file) "cpp") "clang++ -o *.exe"  )
            (file-name-sans-extension file)
            file)))
     (compile compile-command)))
@@ -376,17 +376,18 @@
 
 
 ;; Casey C/C++  Compilation
-(setq makescript "build.bat")
+(setq compilation-directory-locked nil)
+(setq amgun-makescript "build.bat")
 
 (setq compilation-context-lines 0)
-;(setq compilation-error-regexp-alist
-;    (cons '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : \\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
-;     compilation-error-regexp-alist))
+(setq compilation-error-regexp-alist
+    (cons '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : \\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
+     compilation-error-regexp-alist))
 
 (defun find-project-directory-recursive ()
   "Recursively search for a makefile."
   (interactive)
-  (if (file-exists-p makescript) t
+  (if (file-exists-p amgun-makescript) t
       (cd "../")
       (find-project-directory-recursive)))
 
@@ -415,9 +416,9 @@
 (defun make-without-asking ()
   "Make the current build."
   (interactive)
-  (if (find-project-directory) (compile makescript))
+  (if (find-project-directory) (compile amgun-makescript))
   (other-window 1))
-(define-key global-map "\ec" 'make-without-asking)
+(define-key global-map "\ev" 'make-without-asking)
 ;; ///// End of C++ configuration //////
 
 ;; ///////////////////////// Customised keybinds
