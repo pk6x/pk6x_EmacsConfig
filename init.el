@@ -4,10 +4,10 @@
 (setq inhibit-splash-screen t)
 
 ;; Default find path
-(setq default-directory "D:/personal_projects/programming")
+;;(setq default-directory "D:/personal_projects/programming")
 
 ;; change the font
-(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
+(set-face-attribute 'default nil :font "Ubuntu Mono-13" :weight 'bold)
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
