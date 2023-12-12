@@ -1,108 +1,108 @@
-;;; Summary --- Beginning of my Emacs init file: Commentary:
-;;;;; ///////////////////////////////// Startup & style
-;; inhibit splash screen
+;; Summary --- Beginning of my Emacs init file: Commentary:
+;;; ///////////////////////////////// Startup & style
+; inhibit splash screen
 (setq inhibit-splash-screen t)
 
-;; Default find path
+; Default find path
 (setq default-directory "D:/personal_projects/programming")
 
-;; change the font
-(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
+; change the font
+;(set-face-attribute 'default nil :font "consolas-17" :weight 'bold)
 
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "c1a256")
+;(global-hl-line-mode 1)
+;(set-face-background 'hl-line "c1a256")
 
-;; add en dash character to the word constituent syntax class
+; add en dash character to the word constituent syntax class
 (modify-syntax-entry ?– "w")
 (global-superword-mode)
 
-;; load-theme
-;; (load-theme 'zenburn t)
+; load-theme
+; (load-theme 'zenburn t)
 
-;; set cursor color
-(set-cursor-color "green")
+; set cursor color
+;(set-cursor-color "green")
 
-;; Disabling middle mouse click
+; Disabling middle mouse click
 (global-unset-key [mouse-2])
 
-;; turn on electric pair mode
+; turn on electric pair mode
 (electric-pair-mode 1)
 
-;; maximaise screen on startup
+; maximaise screen on startup
 ;(add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
-;; Set inital window width/height
-;; @monitor/1440p @Windows
+; Set inital window width/height
+; @monitor/1440p @Windows
 (setq default-frame-alist
       '((top . 5) (left . 0) (width . 129) (height . 49)))
 
-;; Startup windowing
+; Startup windowing
 (setq next-line-add-newlines nil)
 (setq-default truncate-lines t)
 (setq truncate-partial-width-windows nil)
-;;(split-window-horizontally)
+;(split-window-horizontally)
 
-;; disable menu on startup
-;; (menu-bar-mode -1)
+; disable menu on startup
+; (menu-bar-mode -1)
 
-;; disable tools on startup
-(tool-bar-mode -1)
+; disable tools on startup
+;(tool-bar-mode -1)
 
-;; disable scroll bar on startup
-(scroll-bar-mode -1)
+; disable scroll bar on startup
+;(scroll-bar-mode -1)
 
-;; Enabling line number mode
-(global-display-line-numbers-mode)
+; Enabling line number mode
+;(global-display-line-numbers-mode)
 
-;; Powerful info mini-menu
-(setq frame-title-format
-      (list (format"%s %%s: %%j " (system-name))
-      '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+; Powerful info mini-menu
+;(setq frame-title-format
+;      (list (format"%s %%s: %%j " (system-name))
+;      '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
-;; Smooth scrolling
-(setq scroll-step 3)
+; Smooth scrolling
+;(setq scroll-step 3)
 
-;; Display time
-(display-time)
+; Display time
+;(display-time)
 
-;; Always syntax highlighting
-;; (global-font-lock-mode 1)
+; Always syntax highlighting
+; (global-font-lock-mode 1)
 
-;; Highlight brackets/parenthesis
-;; (setq show-paren-delay 0
-;;      show-paren-style 'parenthesis)
-;; (show-paren-mode 1)
+; Highlight brackets/parenthesis
+; (setq show-paren-delay 0
+;      show-paren-style 'parenthesis)
+; (show-paren-mode 1)
 
-;; Set high limit for undo history
+; Set high limit for undo history
 (setq undo-limit 2000000)
 (setq undo-strong-limit 4000000)
-;;(setq max-specpdl-size 13000)
+;(setq max-specpdl-size 13000)
 
-;; Insert timd of the day
-(defun insert-timeofday ()
-  (interactive "*")
-  (insert (format-time-string "---------------- %a, %d %b %y: %I:%M%p"))
-  )
-;; //////////////////////////////// End of Startup & style
+; Insert timd of the day
+;(defun insert-timeofday ()
+;  (interactive "*")
+;  (insert (format-time-string "---------------- %a, %d %b %y: %I:%M%p"))
+;  )
+; //////////////////////////////// End of Startup & style
 
-;; //////////////////////////////// Customised keybining
+; //////////////////////////////// Customised keybining
 
-;; Prevent consecutive marks activating bloody `transient-mark-mode'.
+; Prevent consecutive marks activating bloody `transient-mark-mode'.
 (defadvice set-mark-command (after no-bloody-t-m-m activate)
   (if transient-mark-mode (setq transient-mark-mode nil)))
 
-;; Prevent mouse commands activiating bloody `transient-mark-mode'.
+; Prevent mouse commands activiating bloody `transient-mark-mode'.
 (defadvice mouse-set-region-1 (after no-bloody-t-m-m activate)
   (if transient-mark-mode (setq transient-mark-mode nil)))
 
-;; Replace a string without moving point
+; Replace a string without moving point
 (defun replace-string (FromString ToString)
   (interactive "sReplace: \nsReplace: %s With: ")
   (save-excursion
     (replace-string FromString ToString)
     ))
 
-;; Perform a replace-string in the current region
+; Perform a replace-string in the current region
 (defun replace-in-region (old-word new-word)
   (interactive "sReplace: \nsReplace: %s With: ")
   (save-excursion (save-restriction
@@ -112,14 +112,14 @@
         ))
   )
 
-;; Navigaiton
-;; Moves to the previous line containing nothing but whitespace
+; Navigaiton
+; Moves to the previous line containing nothing but whitespace
 (defun previous-blank-line ()
   (interactive)
   (search-backward-regexp "^[ \t]*\n")
   )
 
-;; Moves to the next line containing nothing but whitespace
+; Moves to the next line containing nothing but whitespace
 (defun next-blank-line ()
   (interactive)
   (forward-line)
@@ -128,11 +128,11 @@
   )
 
 
-;; /////////////////////////////// End of customised keybinding
+; /////////////////////////////// End of customised keybinding
 
-;; //////////////////////////////// C/C++ style
-;; C/C++ mode handling
-;; Unique comments style
+; //////////////////////////////// C/C++ style
+; C/C++ mode handling
+; Unique comments style
 (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
 (make-face 'font-lock-fixme-face)
 (make-face 'font-lock-note-face)
@@ -145,7 +145,7 @@
 (modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
 (modify-face 'font-lock-note-face "Dark Green" nil nil t nil t nil nil)
 
-;; Accepted file extensions and their appropriate modes
+; Accepted file extensions and their appropriate modes
 (setq auto-mode-alist
 (append
  '(("\\.cpp$"    . c++-mode)
@@ -165,7 +165,7 @@
    ("\\.mm$" . objc-mode)
    ) auto-mode-alist))
 
-;; C++ indentation style
+; C++ indentation style
   (defconst c-default-style
   '((c-electric-pound-behavior   . nil)
     (c-tab-always-indent         . t)
@@ -211,28 +211,27 @@
     "Big Fun C++ Style."
     )
 
-
 (defun big-fun-c-hook ()
-  ;; Set my style for the current buffer
+  ; Set my style for the current buffer
   (c-add-style "BigFun" c-default-style t)
 
-  ;; 4-space tabs
+  ; 4-space tabs
   (setq tab-width 4
         indent-tabs-mode nil)
 
-  ;; Newline indents, semi-colon wont
+  ; Newline indents, semi-colon wont
   (setq c-hanging-semi&comma-criteria '((lambda () 'stop)))
   
-  ;; Additional style stuff
+  ; Additional style stuff
   (c-set-offset 'member-init-intro '++)
 
-  ;; No hungry backspace
+  ; No hungry backspace
   (c-toggle-auto-hungry-state -1)
   
-  ;; Abbrevation expansion
+  ; Abbrevation expansion
   (abbrev-mode 1)
 
-  ;; Format the given file as a header file
+  ; Format the given file as a header file
   (defun header-format ()
     (interactive)
     (setq BaseFileName (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
@@ -258,7 +257,7 @@
     (insert "#endif")
     )
 
-  ;; Format the given file as a source file
+  ; Format the given file as a source file
   (defun source-format ()
     (interactive)
     (setq BaseFileName (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
@@ -305,21 +304,28 @@
   (define-key c++-mode-map [C-tab] 'indent-region)
   (define-key c++-mode-map "\C-y" 'indent-for-tab-command)
   (define-key c++-mode-map "^[  " 'indent-region)
+
+;(add-to-list 'compilation-error-regexp-alist 'amgun-devenv)
+;  (add-to-list 'compilation-error-regexp-alist-alist '(amgun-devenv
+;   "*\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : \\(?:see declaration\\|\\(?:warnin\\(g\\)\\|[a-z ]+\\) C[0-9]+:\\)"
+;    2 3 nil (4)))
 )
+
+
 
 (add-hook 'c-mode-common-hook 'big-fun-c-hook)
 
-;; add en dash word "hyphenated compound word" as word constituents in the syntax table
+; add en dash word "hyphenated compound word" as word constituents in the syntax table
 (add-hook 'c++-mode-hook 'superword-mode)
 (add-hook 'c++-mode-hook (lambda () (modify-syntax-entry ?- "w")))
 
-;; set "gnu" style indenting for c
+; set "gnu" style indenting for c
   ; (setq c-default-style "Linux"
   ; c-basic-offset 4)
-;; //////////////////////////////// End of C/C++ style
+; //////////////////////////////// End of C/C++ style
 
-;; //////  C++ configuration by external packages
-;; Enabling melpa package archiver
+; //////  C++ configuration by external packages
+; Enabling melpa package archiver
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
@@ -330,11 +336,11 @@
 (use-package try :ensure t)
 (use-package which-key :ensure t :config (which-key-mode))
 
-;; yasnippet
+; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;; auto-commplete
+; auto-commplete
 (use-package auto-complete
   :ensure t
   :init
@@ -343,50 +349,51 @@
     (global-auto-complete-mode t)
     ))
 
-;; flycheck
+; flycheck
 (use-package flycheck
   :ensure t
   :init
   (global-flycheck-mode t))
 
-;; C++ font
-(use-package modern-cpp-font-lock
-  :ensure t)
+; C++ font
+;(use-package modern-cpp-font-lock
+;  :ensure t)
 
-;; Magit
+; Magit
 (use-package magit
   :ensure t
   :init
   (progn
     (bind-key "C-x g" 'magit-status)))
 
-;; C++ compilation
-(defun code-compile ()
-  (interactive)
-  (unless (file-exists-p "Makefile")
-    (set (make-local-variable 'compile-command)
-     (let ((file (file-name-nondirectory buffer-file-name)))
-       (format "%s -o %s %s"
-           (if  (equal (file-name-extension file) "cpp") "clang++" "clang" )
-           (file-name-sans-extension file)
-           file)))
-    (compile compile-command)))
+; C++ compilation
+;(defun code-compile ()
+;  (interactive)
+;  (unless (file-exists-p "Makefile")
+;    (set (make-local-variable 'compile-command)
+;     (let ((file (file-name-nondirectory buffer-file-name)))
+;       (format "%s -o %s %s"
+;           (if  (equal (file-name-extension file) "cpp") "clang++ -o *.exe"  )
+;           (file-name-sans-extension file)
+;           file)))
+;    (compile compile-command)))
 
-(global-set-key [f8] 'code-compile)
+;(global-set-key [f8] 'code-compile)
 
-
-;; Casey C/C++  Compilation
-(setq makescript "build.bat")
-
-(setq compilation-context-lines 0)
+; Casey C/C++  Compilation
+;(setq compilation-context-lines 0)
 ;(setq compilation-error-regexp-alist
 ;    (cons '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : \\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
 ;     compilation-error-regexp-alist))
 
+(setq amgun-makescript "build.bat")
+(setq compilation-directory-locked nil)
+
+
 (defun find-project-directory-recursive ()
   "Recursively search for a makefile."
   (interactive)
-  (if (file-exists-p makescript) t
+  (if (file-exists-p amgun-makescript) t
       (cd "../")
       (find-project-directory-recursive)))
 
@@ -415,12 +422,12 @@
 (defun make-without-asking ()
   "Make the current build."
   (interactive)
-  (if (find-project-directory) (compile makescript))
+  (if (find-project-directory) (compile amgun-makescript))
   (other-window 1))
-(define-key global-map "\ec" 'make-without-asking)
-;; ///// End of C++ configuration //////
+(define-key global-map "\ev" 'make-without-asking)
+; ///// End of C++ configuration //////
 
-;; ///////////////////////// Customised keybinds
+; ///////////////////////// Customised keybinds
 (define-key global-map "\ef" 'find-file)
 (define-key global-map "\eF" 'find-file-other-window)
 (global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
@@ -441,10 +448,10 @@
 (define-key global-map "\eN" 'previous-error)
 (define-key global-map "\eg" 'goto-line)
 (define-key global-map "\ej" 'imenu)
-;; (define-key global-map "^Q" 'copy-region-as-kill)
-;; (define-key global-map "^F" 'yank)
-;; (define-key global-map "^Y" 'nil)
-;; (define-key global-map "^E" 'rotate-yank-pointer)
+; (define-key global-map "^Q" 'copy-region-as-kill)
+; (define-key global-map "^F" 'yank)
+; (define-key global-map "^Y" 'nil)
+; (define-key global-map "^E" 'rotate-yank-pointer)
 (define-key global-map "\eu" 'undo)
 (define-key global-map "\e6" 'upcase-word)
 (define-key global-map "\e^" 'captilize-word)
@@ -452,7 +459,7 @@
 (define-key global-map "\el" 'replace-in-region)
 (define-key global-map "\eo" 'query-replace)
 (define-key global-map "\eO" 'replace-string)
-;; \377 is alt+backspace
+; \377 is alt+backspace
 (define-key global-map "\377" 'backward-kill-word)
 (define-key global-map [M-delete] 'kill-word)
 (define-key global-map "\e[" 'start-kbd-macro)
@@ -464,9 +471,9 @@
 (define-key global-map [C-right] 'forward-word)
 (define-key global-map [C-left] 'backward-word)
 
-;; ///// End of C++ configuration //////
+; ///// End of C++ configuration //////
 
-;; ///////////////////////// Customised keybinds
+; ///////////////////////// Customised keybinds
 (define-key global-map "\ef" 'find-file)
 (define-key global-map "\eF" 'find-file-other-window)
 (global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
@@ -476,7 +483,7 @@
 (define-key global-map "\eq" 'copy-region-as-kill)
 (define-key global-map [home] 'forward-sentence)
 (define-key global-map [end] 'backward-sentence)
-;;(define-key global-map "\ez" ')
+;(define-key global-map "\ez" ')
 (define-key global-map "\em" 'forward-word)
 (define-key global-map "\eM" 'backward-word)
 (define-key global-map "\e:" 'view-back-to-mark)
@@ -488,10 +495,10 @@
 (define-key global-map "\eN" 'previous-error)
 (define-key global-map "\eg" 'goto-line)
 (define-key global-map "\ej" 'imenu)
-;; (define-key global-map "^Q" 'copy-region-as-kill)
-;; (define-key global-map "^F" 'yank)
-;; (define-key global-map "^Y" 'nil)
-;; (define-key global-map "^E" 'rotate-yank-pointer)
+; (define-key global-map "^Q" 'copy-region-as-kill)
+; (define-key global-map "^F" 'yank)
+; (define-key global-map "^Y" 'nil)
+; (define-key global-map "^E" 'rotate-yank-pointer)
 (define-key global-map "\eu" 'undo)
 (define-key global-map "\e6" 'upcase-word)
 (define-key global-map "\e^" 'captilize-word)
@@ -499,7 +506,7 @@
 (define-key global-map "\el" 'replace-in-region)
 (define-key global-map "\eo" 'query-replace)
 (define-key global-map "\eO" 'replace-string)
-;; \377 is alt+backspace
+; \377 is alt+backspace
 (define-key global-map "\377" 'backward-kill-word)
 (define-key global-map [M-delete] 'kill-word)
 (define-key global-map "\e[" 'start-kbd-macro)
@@ -523,26 +530,26 @@
 (define-key global-map "\ew" 'other-window)
 (define-key global-map "\ep" 'yank)
 
-;; Insert new line below current line
-;; and move cursor to new line
-;; it will also indent newline
+; Insert new line below current line
+; and move cursor to new line
+; it will also indent newline
 (global-set-key (kbd "<C-return>") (lambda ()
                    (interactive)
                    (end-of-line)
                    (newline-and-indent)))
-;; Insert new line above current line
-;; and move cursor to previous line (newly inserted line)
-;; it will also indent newline
+; Insert new line above current line
+; and move cursor to previous line (newly inserted line)
+; it will also indent newline
 (global-set-key (kbd "<C-S-return>") (lambda ()
                        (interactive)
                        (beginning-of-line)
                        (newline-and-indent)
                        (previous-line)))
-;; //////////////////////////////////////// End of Customised keybinds
+; //////////////////////////////////////// End of Customised keybinds
 
-;; //////////////////////////////////////// External packages
+; //////////////////////////////////////// External packages
 
-;; modeline configuration
+; modeline configuration
 (setq-default mode-line-format nil)
 (setq-default mode-line-format
 	      '("%e"
@@ -552,12 +559,12 @@
 		(:eval (format "%s" (propertize (symbol-name major-mode) 'face 'bold)))
 		))
 
-;; //////////////////////////////////////// Auto-generated after first running.
+; //////////////////////////////////////// Auto-generated after first running.
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+ ; custom-set-variables was added by Custom.
+ ; If you edit it by hand, you could mess it up, so be careful.
+ ; Your init file should contain only one such instance.
+ ; If there is more than one, they won't work right.
  '(auto-save-default nil)
  '(auto-save-interval 0)
  '(auto-save-list-file-prefix nil)
@@ -579,10 +586,10 @@
  '(mode-line-compact 'long)
  '(mosue-wheel-follow-mouse nil))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+ ; custom-set-faces was added by Custom.
+ ; If you edit it by hand, you could mess it up, so be careful.
+ ; Your init file should contain only one such instance.
+ ; If there is more than one, they won't work right.
  '(hl-line ((t (:extend t :background "blue"))))
  '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436" :box (:line-width (3 . 3) :color "blue") :weight normal :height 0.8))))
  '(mode-line-buffer-id ((t (:slant italic :weight bold))))
