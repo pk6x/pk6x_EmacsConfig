@@ -26,7 +26,7 @@
 ; (load-theme 'zenburn t)
 
 ; set the line spacing
-(setq-default line-spacing 0.25)
+(setq-default line-spacing 0.3)
 
 ;set cursor color
 (set-cursor-color "green")
