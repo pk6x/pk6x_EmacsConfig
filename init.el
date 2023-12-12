@@ -47,7 +47,7 @@
 ; QHD mointor
 ; for when vertically split
 (setq default-frame-alist
-      '((top . 5) (left . 0) (width . 175) (height . 67)))
+      '((top . 5) (left . 0) (width . 175) (height . 70)))
 ;for when not split
 ;(setq default-frame-alist
 ;      '((top . 5) (left . 0) (width . 85) (height . 49)))
