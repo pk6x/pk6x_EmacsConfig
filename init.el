@@ -618,9 +618,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "outline" :slant normal :weight regular :height 143 :width normal))))
+ '(default ((t (:family "Ubuntu Mono" :foundry "outline" :slant
+ normal :weight bold :height 143 :width normal))))
  '(hl-line ((t (:extend t :background "blue"))))
- '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436" :box (:line-width (3 . 3) :color "blue") :weight normal :height 0.8))))
+ '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436"
+ :box (:line-width (3 . 3) :color "blue") :weight normal :height
+ 0.8))))
  '(mode-line-buffer-id ((t (:slant italic :weight bold))))
- '(mode-line-inactive ((t (:background "#555753" :foreground "#eeeeec" :weight normal :height1 0.8)))))
+ '(mode-line-inactive ((t (:background "#555753" :foreground "
+#eeeeec" :weight normal :height1 0.8)))))
 (put 'upcase-region 'disabled nil)
