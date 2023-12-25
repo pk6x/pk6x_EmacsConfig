@@ -1,18 +1,13 @@
 ;; Summary --- Beginning of my Emacs init file: Commentary:
-
 ; ///////////////////////////////// Startup & style
 ; inhibit splash screen
-(setq inhibit-splash-screen t)
-
-; load server
-(require 'server)
-(unless (server-running-p) (server-start))
+;(setq inhibit-splash-screen t)
 
 ; load path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ; Default find path
-(setq default-directory "D:/personal_projects/programming")
+;(setq default-directory "D:/personal_projects/programming")
 
 ; change the font
 ;(set-face-attribute 'default t :font "Ubuntu Mono-17" :weight 'bold)
@@ -24,7 +19,7 @@
 (set-face-background 'hl-line "c1a256")
 
 ; add en dash character to the word constituent syntax class
-;(modify-syntax-entry ?– "w")
+(modify-syntax-entry ?– "w")
 (global-superword-mode)
 
 ; load-theme
@@ -50,16 +45,17 @@
 
 ; set inital window width/height
 ; QHD mointor
-; for when vertically split
-(setq default-frame-alist
-      '((top . 5) (left . 0) (width . 175) (height . 70)))
-;for when not split
 ;(setq default-frame-alist
-;      '((top . 5) (left . 0) (width . 85) (height . 49)))
+;      '((top . 5) (left . 0) (width . 175) (height . 50)))
+
+; QHD monitor(laptop) - Display scale (%175)
+(setq default-frame-alist
+      '((top . 5) (left . 0) (width . 92) (height . 41)))
+
 ;  FHD montior
 ;(setq default-frame-alist
 ;     '((top . 5) (left . 0) (width . 175) (height . 65)))
-;for when not split
+
 ;(setq default-frame-alist
 ;      '((top . 5) (left . 0) (width . 85) (height . 49)))
 
@@ -67,7 +63,7 @@
 (setq next-line-add-newlines nil)
 (setq-default truncate-lines t)
 (setq truncate-partial-width-windows nil)
-(split-window-horizontally)
+;(split-window-horizontally)
 
 ; disable menu on startup
 ; (menu-bar-mode -1)
@@ -113,6 +109,7 @@
 ; //////////////////////////////// End of Startup & style
 
 ; //////////////////////////////// Customised keybining
+
 ; Prevent consecutive marks activating bloody `transient-mark-mode'.
 (defadvice set-mark-command (after no-bloody-t-m-m activate)
   (if transient-mark-mode (setq transient-mark-mode nil)))
@@ -152,6 +149,8 @@
   (search-forward-regexp "^[ \t]*\n")
   (forward-line -1)
   )
+
+
 ; /////////////////////////////// End of customised keybinding
 
 ; //////////////////////////////// C/C++ style
@@ -336,18 +335,13 @@
 ;  2 3 nil (4)))
 )
 
+
+
 (add-hook 'c-mode-common-hook 'big-fun-c-hook)
 
 ; add en dash word "hyphenated compound word" as word constituents in the syntax table
 (add-hook 'c++-mode-hook 'superword-mode)
 (add-hook 'c++-mode-hook (lambda () (modify-syntax-entry ?- "w")))
-;(add-hook 'c++-mode-hook (lambda () (modify-syntax-entry ?{ "w")))
-;(add-hook 'c++-mode-hook (lambda () (modify-syntax-entry ?} "w")))
-
-(add-hook 'csharp-mode-hook 'superword-mode)
-(add-hook 'csharp-mode-hook (lambda () (modify-syntax-entry ?- "w")))
-;(add-hook 'csharp-mode-hook (lambda () (modify-syntax-entry ?{ "w")))
-;(add-hook 'csharp-mode-hook (lambda () (modify-syntax-entry ?} "w")))
 
 ; set "gnu" style indenting for c
   ; (setq c-default-style "Linux"
@@ -579,6 +573,7 @@
 ; //////////////////////////////////////// End of Customised keybinds
 
 ; //////////////////////////////////////// External packages
+
 ; modeline configuration
 (setq-default mode-line-format nil)
 (setq-default mode-line-format
@@ -588,7 +583,6 @@
 		"  "
 		(:eval (format "%s" (propertize (symbol-name major-mode) 'face 'bold)))
 		))
-; //////////////////////////////////////// End of external packages
 
 ; //////////////////////////////////////// Auto-generated after first running.
 (custom-set-variables
