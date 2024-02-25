@@ -327,7 +327,8 @@
   (define-key c++-mode-map "\eC" 'find-corresponding-file-other-window)
   (define-key c++-mode-map [C-tab] 'indent-region)
   (define-key c++-mode-map "\C-y" 'indent-for-tab-command)
-  (define-key c++-mode-map "^[  " 'indent-region)
+  (define-key c++-mode-map "^[  " 'indent-reg ion)
+
 
 ;(add-to-list 'compilation-error-regexp-alist 'amgun-devenv)
 ;  (add-to-list 'compilation-error-regexp-alist-alist '(amgun-devenv
@@ -459,6 +460,10 @@
 ; ///// End of C++ configuration //////
 
 ; ///////////////////////// Customised keybinds
+;(define-key global-map "\ee" 'move-end-of-line)
+;(define-key global-map "\ea" 'move-beginning-of-line)
+;(define-key global-map [C-e] 'c-end-of-statement)
+;(define-key global-map [C-a] 'c-beginning-of-statement)
 (define-key global-map "\ef" 'find-file)
 (define-key global-map "\eF" 'find-file-other-window)
 (global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
