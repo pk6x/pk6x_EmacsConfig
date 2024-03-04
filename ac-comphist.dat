@@ -1,9 +1,24 @@
-((("main" .
+<<<<<<< HEAD
+(((":weight" .
+   [1 0 0 0 0 0 0])
+  ("column-number-" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  (":eval" .
+   [2 0 0 0 0])
+  ("column-number-mode" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1])
+  ("normal" .
+   [3 0 0 0 0 0])
+=======
+((("normal" .
+   [2 0 0 0 0 0])
+>>>>>>> fa896ca19f87ad8f48858790fa678f1ae7fbc02e
+  ("main" .
    [1 0 0 0])
   ("AddVector" .
    [0 0 0 1 0 0 0 0 0])
   ("c" .
-   [1])
+   [2])
   ("iostream" .
    [1 0 0 0 0 0 0 0])
   ("replace-regexp-in-region" .
@@ -77,7 +92,7 @@
   ("hl-line" .
    [0 0 1 0 0 0 0])
   ("default-directory" .
-   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+   [0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0])
   ("abbrev-mode" .
    [1 0 0 0 0 0 0 0 0 0 0])
   ("fFov" .
@@ -327,7 +342,7 @@
   ("truncate-lines" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("setq-default" .
-   [0 0 0 0 0 0 0 1 0 0 0 0])
+   [0 0 0 0 0 0 0 2 1 0 0 0])
   ("nil" .
    [13 0 0])
   ("next-line-add-newlines" .
@@ -385,7 +400,7 @@
   ("set-cursor-color" .
    [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
   ("setq" .
-   [18 0 0 0])
+   [19 0 0 0])
   ("C-deletechar" .
    [0 0 0 0 0 0 0 0 0 0 0 1])
   ("c-default-style" .
@@ -471,4 +486,12 @@
   ("value" .
    [1 0 0 0 0])
   ("Vector" .
-   [0 0 0 0 0 2])))
+   [0 0 0 0 0 2])
+  ("mode-line-column-line-number-mode-map" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("format" .
+   [1 0 0 0 0 0])
+  ("mode-line-position" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("mode-line" .
+   [1 0 0 0 0 0 0 0 0])))
