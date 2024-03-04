@@ -50,7 +50,7 @@
 
 ; QHD monitor(laptop) - Display scale (%175)
 (setq default-frame-alist
-      '((top . 5) (left . 0) (width . 92) (height . 41)))
+      '((top . 5) (left . 0) (width . 117) (height . 49)))
 
 ;  FHD montior
 ;(setq default-frame-alist
@@ -620,12 +620,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Ubuntu Mono" :foundry "outline" :slant
- normal :weight bold :height 143 :width normal))))
+ normal :weight normal :height 115 :width normal))))
  '(hl-line ((t (:extend t :background "blue"))))
  '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436"
  :box (:line-width (3 . 3) :color "blue") :weight normal :height
  0.8))))
- '(mode-line-buffer-id ((t (:slant italic :weight bold))))
+ '(mode-line-buffer-id ((t (:slant italic :weight normal))))
  '(mode-line-inactive ((t (:background "#555753" :foreground "
 #eeeeec" :weight normal :height1 0.8)))))
 (put 'upcase-region 'disabled nil)
