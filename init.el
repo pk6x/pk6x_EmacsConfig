@@ -612,22 +612,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-<<<<<<< HEAD
  '(default ((t (:family "Ubuntu Mono" :weight normal :height 115 :width normal))))
  '(hl-line ((t (:extend t :background "blue"))))
  '(mode-line ((t (:weight normal :height 1.2))))
  '(mode-line-active ((t (:background "gray27" :height 1.2 :width normal))))
  '(mode-line-highlight ((t nil)))
  '(mode-line-inactive ((t (:background "gray14" :weight normal :height 1.2)))))
-=======
- '(default ((t (:family "Ubuntu Mono" :foundry "outline" :slant
- normal :weight normal :height 115 :width normal))))
- '(hl-line ((t (:extend t :background "blue"))))
- '(mode-line ((t (:background "#d3d7cf" :foreground "#2e3436"
- :box (:line-width (3 . 3) :color "blue") :weight normal :height
- 0.8))))
- '(mode-line-buffer-id ((t (:slant italic :weight normal))))
- '(mode-line-inactive ((t (:background "#555753" :foreground "
-#eeeeec" :weight normal :height1 0.8)))))
->>>>>>> fa896ca19f87ad8f48858790fa678f1ae7fbc02e
 (put 'upcase-region 'disabled nil)
