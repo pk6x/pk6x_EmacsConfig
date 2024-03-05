@@ -6,7 +6,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ; default directory when opening
-(setq default-directory "D:/personal_projects/programming/")
+;(setq default-directory "D:/personal_projects/programming/")
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
@@ -46,7 +46,7 @@
 
 ; QHD monitor(laptop) - Display scale (%175)
 (setq default-frame-alist
-      '((top . 5) (left . 0) (width . 117) (height . 49)))
+      '((top . 5) (left . 0) (width . 108) (height . 52)))
 
 ; FHD montior
 ;(setq default-frame-alist
@@ -607,7 +607,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :weight normal :height 115 :width normal))))
+ '(default ((t (:family "UbuntuMono Nerd Font" :weight normal :height 115 :width normal))))
  '(hl-line ((t (:extend t :background "blue"))))
  '(mode-line ((t (:weight normal :height 1.2))))
  '(mode-line-active ((t (:background "gray27" :height 1.2 :width normal))))
