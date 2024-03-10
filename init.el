@@ -42,7 +42,7 @@
 ; set inital window width/height
 ; QHD mointor
 (setq default-frame-alist
-      '((top . 5) (left . 0) (width . 237) (height . 88)))
+      '((top . 5) (left . 0) (width . 132) (height . 78)))
 
 ; QHD monitor(laptop) - Display scale (%175)
 ;(setq default-frame-alist
@@ -59,7 +59,7 @@
 (setq next-line-add-newlines nil)
 (setq-default truncate-lines t)
 ;(setq truncate-partial-width-windows nil)
-(split-window-horizontally)
+;(split-window-horizontally)
 
 ; disable menu on startup
 ; (menu-bar-mode -1)
@@ -612,7 +612,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "UbuntuMono Nerd Font" :weight normal :height 115 :width normal))))
+ '(default ((t (:family "UbuntuMono Nerd Font" :weight normal :height 130 :width normal))))
  '(hl-line ((t (:extend t :background "blue"))))
  '(mode-line ((t (:weight normal :height 1.2))))
  '(mode-line-active ((t (:background "gray27" :height 1.2 :width normal))))
