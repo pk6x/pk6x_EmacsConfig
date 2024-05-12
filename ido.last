@@ -1,0 +1,40 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("d:/" . "downloads/")
+ ("c:/Users/aamg/AppData/Roaming/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "c:/Program Files/Emacs/emacs-28.2/bin/"
+ "c:/Program Files/Emacs/emacs-28.2/bin/t.h/"
+ "d:/downloads/"
+ "d:/"
+ "c:/Users/aamg/AppData/Roaming/.emacs.d/"
+ "c:/Users/aamg/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "t.h"
+ "t.cpp"
+ "init.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("c:/Users/aamg/AppData/Roaming/.emacs.d/" (25887 6122 0 0) "transient/" "snippets/" "init.elold" "init.el" "ido.last~" "ido.last" "elpa/" "auto-save-list/" "ac-comphist.dat" ".git/" "%backup%~" "../" "./")
+
+ ("c:/Users/aamg/" (25881 31072 0 0) "_viminfo" "vimfiles/" "Videos/" "Viasfora/" "Templates/" "Start Menu/" "source/" "SendTo/" "Searches/" "Saved Games/" "Recent/" "PrintHood/" "Pictures/" "ntuser.ini" "NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TMContainer00000000000000000002.regtrans-ms" "NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TMContainer00000000000000000001.regtrans-ms" "NTUSER.DAT{53b39e88-18c4-11ea-a811-000d3aa4692b}.TM.blf" "ntuser.dat.LOG2" "ntuser.dat.LOG1" "NTUSER.DAT" "NetHood/" "My Documents/" "Music/" "Local Settings/" "Links/" "Favorites/" "Downloads/" "Documents/" "Desktop/" "Cookies/" "Contacts/" "Application Data/" "AppData/" "ansel/" "3D Objects/" ".vscode/" ".thumbnails/" ".templateengine/" ".sync_settings/" ".ssh/" ".ms-ad/" ".lesshst" ".idlerc/" ".gitconfig" ".dotnet/" ".config/" ".cache/" "../" "./")
+
+ ("d:/downloads/" (25887 4616 0 0) "التوراة_ترجمة_عربية_عمرها.pdf" "wp8053127-5120x1440-christmas-wallpapers.jpg" "wp10444681-5120x1440-dark-winter-wallpapers.jpg" "wp10444662-5120x1440-dark-winter-wallpapers.jpg" "VS2003_CPP_en-us.pdf" "ShareX/" "pxfuel.jpg" "p2410r0.pdf" "myGameDevToolsSet2.psd" "myGameDevToolsSet2.jpg" "init.el" "downtown-blizzard-5120x1440.jpg" "Almoughrabi_CV.pdf" "../" "./")
+
+ ("c:/Users/aamg/AppData/Roaming/" (25871 12291 0 0) "ZEON/" "VSColorOutput64/" "vlc/" "Visual Studio Setup/" "Unreal Engine/" "UnityHub/" "UI Launcher/" "Topaz Labs LLC/" "substancelinkopentcp/" "Sublime Text/" "SnapDownloader/" "Quest3D/" "qBittorrent/" "PureRef.ini" "Pentablet V3/" "Pentablet/" "NZXT CAM/" "NVIDIA/" "NuGet/" "newfolder.ico" "Microsoft FxCop/" "Microsoft/" "Maxon/" "krita/" "JetBrains/" "InstallShield/" "IDM/" "Godot/" "GIMP/" "FLEXnet/" "Everything/" "EasyAntiCheat/" "DMCache/" "discord/" "Corsair Vengeance/" "com.adobe.dunamis/" "Code/" "ClangPowerTools/" "CELSYS_EN/" "CELSYS/" "Brother/" "Battle.net/" "Autodesk/" "AMD/" "Adobe/" "ActorCore AccuRIG/" ".emacs.d/" "../" "./")
+
+ ("c:/Program Files/Emacs/emacs-28.2/bin/" (25773 45798 0 0) "zlib1.dll" "runemacs.exe" "libzstd.dll" "libXpm-noX4.dll" "libxml2-2.dll" "libwinpthread-1.dll" "libwebp-7.dll" "libunistring-2.dll" "libturbojpeg.dll" "libtiffxx-5.dll" "libtiff-5.dll" "libthai-0.dll" "libtasn1-6.dll" "libstdc++-6.dll" "librsvg-2-2.dll" "libpng16-16.dll" "libpixman-1-0.dll" "libpcre-1.dll" "libpangowin32-1.0-0.dll" "libpangoft2-1.0-0.dll" "libpangocairo-1.0-0.dll" "libpango-1.0-0.dll" "libp11-kit-0.dll" "libnettle-8.dll" "liblzma-5.dll" "libLerc.dll" "liblcms2-2.dll" "libjpeg-8.dll" "libjbig-0.dll" "libjansson-4.dll" "libintl-8.dll" "libidn2-0.dll" "libiconv-2.dll" "libhogweed-6.dll" "libharfbuzz-subset-0.dll" "libharfbuzz-icu-0.dll" "libharfbuzz-gobject-0.dll" "libharfbuzz-0.dll" "libgraphite2.dll" "libgobject-2.0-0.dll" "libgnutlsxx-28.dll" "libgnutls-openssl-27.dll" "libgnutls-30.dll" "libgmpxx-4.dll" "libgmp-10.dll" "libgmodule-2.0-0.dll" "libglib-2.0-0.dll" "libgio-2.0-0.dll" "libgif-7.dll" "libgdk_pixbuf-2.0-0.dll" "libgcc_s_seh-1.dll" "libfribidi-0.dll" "libfreetype-6.dll" "libfontconfig-1.dll" "libffi-7.dll" "libexpat-1.dll" "libdeflate.dll" "libdatrie-1.dll" "libcairo-gobject-2.dll" "libcairo-2.dll" "libbz2-1.dll" "libbrotlidec.dll" "libbrotlicommon.dll" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "emacs-28.2.exe" "ebrowse.exe" "ctags.exe" "addpm.exe" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
