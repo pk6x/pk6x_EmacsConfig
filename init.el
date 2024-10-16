@@ -456,7 +456,7 @@
 (global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
 (global-set-key (read-kbd-macro "\eB") 'ido-switch-buffer-other-window)
 (define-key global-map "\eS" 'save-buffer)
-(define-key global-map "\es" 'isearch-mode)
+(define-key global-map "\es" 'isearch-forward)
 ;; (define-key global-map "\es" 'isearch)
 (define-key global-map "\el" 'kill-whole-line)
 (define-key global-map "\eL" 'replace-in-region)

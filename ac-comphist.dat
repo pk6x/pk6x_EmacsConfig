@@ -1,1 +1,76 @@
-(nil)
+((("isearch-search" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("isearch-mode" .
+   [0 0 0 0 0 0 0 2 0 0 0 0])
+  ("replace-in-region" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("isearch-forward-word" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("isearch" .
+   [1 0 0 0 3 0 0])
+  ("delete-line" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("open-line" .
+   [0 0 0 0 0 0 0 1 0])
+  ("open" .
+   [1 0 0 0])
+  ("global" .
+   [1 0 0 0 0 0])
+  ("insertline" .
+   [0 0 0 1 0 0 0 0 0 0])
+  ("l" .
+   [1])
+  ("n" .
+   [1])
+  ("i" .
+   [1])
+  ("quit" .
+   [1 0 0 0])
+  ("define-key" .
+   [6 0 0 0 0 0 0 0 0 6])
+  ("global-map" .
+   [1 0 0 0 0 0 2 0 0 9])
+  ("m" .
+   [1])
+  ("c" .
+   [1])
+  ("kill-region" .
+   [0 0 0 0 0 0 0 2 0 0 0])
+  ("quit-process" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("copy-region-as-kill" .
+   [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0])
+  ("forward-char" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("backward-char" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("C-w" .
+   [1 0 0])
+  ("other-window" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("keyboard-escape-quit" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("next-buffer" .
+   [0 0 0 0 0 0 1 0 0 0 0])
+  ("previous-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("comment-line" .
+   [0 0 0 0 0 0 0 0 1 0 0 1])
+  ("search" .
+   [2 0 0 1 0 0])
+  ("kill-line" .
+   [0 0 0 0 0 0 0 1 0])
+  ("kill-whole-line" .
+   [0 0 0 0 0 0 0 0 2 1 0 0 0 0 0])
+  ("isearch-word" .
+   [0 0 0 0 0 0 0 0 2 0 1 1])
+  ("kill-backward-chars" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("de" .
+   [1 0])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("copy" .
+   [1 0 0 0])
+  ("isearch-forward" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])))
