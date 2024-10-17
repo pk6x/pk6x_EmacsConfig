@@ -8,6 +8,90 @@
 ;; default directory when opening
 ;(setq default-directory "W:/")
 
+;; Determine the underlying operating system
+;(setq casey-aquamacs (featurep 'aquamacs))
+;(setq casey-linux (featurep 'x))
+;(setq casey-win32 (not (or casey-aquamacs casey-linux)))
+
+;(setq compilation-directory-locked nil)
+;(scroll-bar-mode -1)
+;(setq shift-select-mode nil)
+;(setq enable-local-variables nil)
+;(setq casey-font "outline-DejaVu Sans Mono")
+
+;(when casey-win32 
+;  (setq casey-makescript "build.bat")
+;  (setq casey-font "outline-Liberation Mono")
+;)
+
+;(when casey-aquamacs 
+;  (cua-mode 0) 
+;  (osx-key-mode 0)
+;  (tabbar-mode 0)
+;  (setq mac-command-modifier 'meta)
+;  (setq x-select-enable-clipboard t)
+;  (setq aquamacs-save-options-on-quit 0)
+;  (setq special-display-regexps nil)
+;  (setq special-display-buffer-names nil)
+;  (define-key function-key-map [return] [13])
+;  (setq mac-command-key-is-meta t)
+;  (scroll-bar-mode nil)
+;  (setq mac-pass-command-to-system nil)
+;  (setq casey-makescript "./build.macosx")
+;)
+
+;(when casey-linux
+;  (setq casey-makescript "./build.linux")
+;  (display-battery-mode 1)
+;)
+
+; ; Compilation
+;(setq compilation-context-lines 0)
+;(setq compilation-error-regexp-alist
+;    (cons '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : ;\\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
+;     compilation-error-regexp-alist))
+;)
+;(defun find-project-directory-recursive ()
+;  "Recursively search for a makefile."
+;  (interactive)
+;  (if (file-exists-p casey-makescript) t
+;      (cd "../")
+;      (find-project-directory-recursive)))
+
+;(defun lock-compilation-directory ()
+;  "The compilation process should NOT hunt for a makefile"
+;  (interactive)
+;  (setq compilation-directory-locked t)
+;  (message "Compilation directory is locked."))
+
+;(defun unlock-compilation-directory ()
+;  "The compilation process SHOULD hunt for a makefile"
+;  (interactive)
+;  (setq compilation-directory-locked nil)
+;  (message "Compilation directory is roaming."))
+
+;(defun find-project-directory ()
+;  "Find the project directory."
+;  (interactive)
+;  (setq find-project-from-directory default-directory)
+;  (switch-to-buffer-other-window "*compilation*")
+;  (if compilation-directory-locked (cd last-compilation-directory)
+;  (cd find-project-from-directory)
+;  (find-project-directory-recursive)
+;  (setq last-compilation-directory default-directory)))
+
+;(defun make-without-asking ()
+;  "Make the current build."
+;  (interactive)
+;  (if (find-project-directory) (compile casey-makescript))
+;  (other-window 1))
+;(define-key global-map "\em" 'make-without-asking)
+
+; Commands
+;(set-variable 'grep-command "grep -irHn ")
+;(when casey-win32
+;    (set-variable 'grep-command "findstr -s -n -i -l "))
+
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
 
@@ -22,7 +106,7 @@
 ;; (load-theme 'zenburn t)
 
 ;; set the line spacing
-(setq-default line-spacing 0.3)
+;; (setq-default line-spacing 0.08)
 
 ;; set cursor color
 (set-cursor-color "green")
@@ -46,11 +130,11 @@
 
 ;; QHD monitor(laptop) - Display scale (%175)
 ;; (setq default-frame-alist
-;; '((top . 5) (left . 0) (width . 117) (height . 49)))
+      ;; '((top . 5) (left . 0) (width . 117) (height . 49)))
 
 ;; FHD montior
 ;; (setq default-frame-alist
-;; '((top . 5) (left . 0) (width . 175) (height . 65)))
+      ;; '((top . 5) (left . 0) (width . 175) (height . 65)))
 
 ;; (setq default-frame-alist
 ;; '((top . 5) (left . 0) (width . 85) (height . 49)))
@@ -381,18 +465,18 @@
     (bind-key "C-x g" 'magit-status)))
 
 ;; C++ compilation
-;; (defun code-compile ()
- ;; (interactive)
- ;; (unless (file-exists-p "Makefile")
-   ;; (set (make-local-variable 'compile-command)
-    ;; (let ((file (file-name-nondirectory buffer-file-name)))
-      ;; (format "%s -o %s %s"
-          ;; (if  (equal (file-name-extension file) "cpp") "clang++ -o *.exe"  )
-          ;; (file-name-sans-extension file)
-          ;; file)))
-   ;; (compile compile-command)))
+(defun code-compile ()
+ (interactive)
+ (unless (file-exists-p "Makefile")
+   (set (make-local-variable 'compile-command)
+    (let ((file (file-name-nondirectory buffer-file-name)))
+      (format "%s -o %s %s"
+          (if  (equal (file-name-extension file) "cpp") "clang++ -o *.exe"  )
+          (file-name-sans-extension file)
+          file)))
+   (compile compile-command)))
 
-;; (global-set-key [f8] 'code-compile)
+(global-set-key [f8] 'code-compile)
 
 ;; Casey C/C++ Compilation (setq compilation-context-lines 0) (setq
 ;; compilation-error-regexp-alist (cons
@@ -489,7 +573,8 @@
 (define-key global-map "\er" 'revert-buffer)
 (define-key global-map "\ek" 'next-buffer)
 (define-key global-map "\eK" 'previous-buffer)
-(define-key global-map "\ex" 'kill-this-buffer)
+(define-key global-map "\eX" 'kill-this-buffer)
+(define-key global-map "\ey" 'delete-backward-char)
 (define-key global-map [C-right] 'forward-word)
 (define-key global-map [C-left] 'backward-word)
 (define-key global-map [C-up] 'previous-blank-line)
@@ -506,6 +591,9 @@
 ;; (define-key c++-mode-map "\C-y" 'indent-for-tab-command)
 ;; (define-key c++-mode-map "^[  " 'indent-region)
 (define-key global-map "\e/" 'comment-line)
+(define-key global-map "\eJ" 'imenu)
+(define-key global-map "\e>" 'beginning-of-buffer)
+(define-key global-map "\e," 'end-of-buffer)
 
 ;; Insert new line below current line
 ;; and move cursor to new line
@@ -569,7 +657,7 @@
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; If you edit   it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Cascadia Code" :weight normal :height 110 :width normal))))
