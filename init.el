@@ -216,17 +216,17 @@
 
 ;; Navigaiton
 ;; Moves to the previous line containing nothing but whitespace
-(defun previous-blank-line ()
-  (interactive)
-  (search-backward-regexp "^[ \t]*\n")
-  )
+;; (defun previous-blank-line ()
+  ;; (interactive)
+  ;; (search-backward-regexp "^[ \t]*\n")
+  ;; )
 
 ;; Moves to the next line containing nothing but whitespace
-(defun next-blank-line ()
-  (interactive)
-  (forward-line)
-  (search-forward-regexp "^[ \t]*\n")
-  (forward-line -1))
+;; (defun next-blank-line ()
+  ;; (interactive)
+  ;; (forward-line)
+  ;; (search-forward-regexp "^[ \t]*\n")
+  ;; (forward-line -1))
 ;; /////////////////////////////// End of customised keybinding
 
 ;; //////////////////////////////// C/C++ style
@@ -540,8 +540,6 @@
 (global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
 (global-set-key (read-kbd-macro "\eB") 'ido-switch-buffer-other-window)
 (define-key global-map "\eS" 'save-buffer)
-(define-key global-map "\es" 'isearch-forward)
-;; (define-key global-map "\es" 'isearch)
 (define-key global-map "\el" 'kill-whole-line)
 (define-key global-map "\eL" 'replace-in-region)
 (define-key global-map "\e " 'set-mark-command)
@@ -594,6 +592,7 @@
 (define-key global-map "\eJ" 'imenu)
 (define-key global-map "\e>" 'beginning-of-buffer)
 (define-key global-map "\e," 'end-of-buffer)
+(define-key global-map "\es" 'isearch-forward)
 
 ;; Insert new line below current line
 ;; and move cursor to new line
