@@ -35,7 +35,7 @@
 (electric-pair-mode 1)
 
 ;; set 80 characters line-wrap
-;; (add-hook 'c++-mode-hook (lambda () (interactive) (column-marker-1 80)))
+(add-hook 'c++-mode-hook (lambda () (interactive) (column-marker-1 80)))
 
 ;; maximaise screen on startup
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
@@ -221,7 +221,7 @@
                                     (access-label          . -4)
                                     (substatement-open     .  0)
 				                            (statement-case-intro  .  4)
-                                    ;; (statement-block-intro .  c-lineup-for)
+                                    (statement-block-intro .  c-lineup-for)
                                     (case-label            .  4)
                                     (block-open            .  4)
                                     (inline-open           .  0)
