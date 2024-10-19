@@ -1,5 +1,6 @@
 ;; Summary --- Beginning of my Emacs init file: Commentary:
-;; ///////////////////////////////// Startup & style inhibit splash
+
+;; //////////////////////////////// Startup & style inhibit splash
 ;; screen (setq inhibit-splash-screen t)
 
 ;; load path
@@ -7,90 +8,6 @@
 
 ;; default directory when opening
 ;(setq default-directory "W:/")
-
-;; Determine the underlying operating system
-;(setq casey-aquamacs (featurep 'aquamacs))
-;(setq casey-linux (featurep 'x))
-;(setq casey-win32 (not (or casey-aquamacs casey-linux)))
-
-;(setq compilation-directory-locked nil)
-;(scroll-bar-mode -1)
-;(setq shift-select-mode nil)
-;(setq enable-local-variables nil)
-;(setq casey-font "outline-DejaVu Sans Mono")
-
-;(when casey-win32 
-;  (setq casey-makescript "build.bat")
-;  (setq casey-font "outline-Liberation Mono")
-;)
-
-;(when casey-aquamacs 
-;  (cua-mode 0) 
-;  (osx-key-mode 0)
-;  (tabbar-mode 0)
-;  (setq mac-command-modifier 'meta)
-;  (setq x-select-enable-clipboard t)
-;  (setq aquamacs-save-options-on-quit 0)
-;  (setq special-display-regexps nil)
-;  (setq special-display-buffer-names nil)
-;  (define-key function-key-map [return] [13])
-;  (setq mac-command-key-is-meta t)
-;  (scroll-bar-mode nil)
-;  (setq mac-pass-command-to-system nil)
-;  (setq casey-makescript "./build.macosx")
-;)
-
-;(when casey-linux
-;  (setq casey-makescript "./build.linux")
-;  (display-battery-mode 1)
-;)
-
-; ; Compilation
-;(setq compilation-context-lines 0)
-;(setq compilation-error-regexp-alist
-;    (cons '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : ;\\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
-;     compilation-error-regexp-alist))
-;)
-;(defun find-project-directory-recursive ()
-;  "Recursively search for a makefile."
-;  (interactive)
-;  (if (file-exists-p casey-makescript) t
-;      (cd "../")
-;      (find-project-directory-recursive)))
-
-;(defun lock-compilation-directory ()
-;  "The compilation process should NOT hunt for a makefile"
-;  (interactive)
-;  (setq compilation-directory-locked t)
-;  (message "Compilation directory is locked."))
-
-;(defun unlock-compilation-directory ()
-;  "The compilation process SHOULD hunt for a makefile"
-;  (interactive)
-;  (setq compilation-directory-locked nil)
-;  (message "Compilation directory is roaming."))
-
-;(defun find-project-directory ()
-;  "Find the project directory."
-;  (interactive)
-;  (setq find-project-from-directory default-directory)
-;  (switch-to-buffer-other-window "*compilation*")
-;  (if compilation-directory-locked (cd last-compilation-directory)
-;  (cd find-project-from-directory)
-;  (find-project-directory-recursive)
-;  (setq last-compilation-directory default-directory)))
-
-;(defun make-without-asking ()
-;  "Make the current build."
-;  (interactive)
-;  (if (find-project-directory) (compile casey-makescript))
-;  (other-window 1))
-;(define-key global-map "\em" 'make-without-asking)
-
-; Commands
-;(set-variable 'grep-command "grep -irHn ")
-;(when casey-win32
-;    (set-variable 'grep-command "findstr -s -n -i -l "))
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
@@ -188,48 +105,54 @@
 ;; )
 ;; //////////////////////////////// End of Startup & style
 
-;; //////////////////////////////// Customised keybining
-;; Prevent consecutive marks activating bloody `transient-mark-mode'.
-(defadvice set-mark-command (after no-bloody-t-m-m activate)
-  (if transient-mark-mode (setq transient-mark-mode nil)))
+;; //////////////////////////////// Start of "From Casey Muratori (C/C++ style and compilation)"
+; Determine the underlying operating system
+(setq system-aquamacs (featurep 'aquamacs))
+(setq system-linux (featurep 'x))
+(setq system-win32 (not (or system-aquamacs system-linux)))
 
-;; Prevent mouse commands activiating bloody `transient-mark-mode'.
-(defadvice mouse-set-region-1 (after no-bloody-t-m-m activate)
-  (if transient-mark-mode (setq transient-mark-mode nil)))
+;; (setq todo-file "w:/handmade/code/todo.txt")
+;; (setq log-file "w:/handmade/code/log.txt")
 
-;; Replace a string without moving point
-(defun replace-string (FromString ToString)
-  (interactive "sReplace: \nsReplace: %s With: ")
-  (save-excursion
-    (replace-string FromString ToString)
-    ))
+(setq compilation-directory-locked nil)
 
-;; Perform a replace-string in the current region
-(defun replace-in-region (old-word new-word)
-  (interactive "sReplace: \nsReplace: %s With: ")
-  (save-excursion (save-restriction
-        (narrow-to-region (mark) (point))
-        (beginning-of-buffer)
-        (replace-regexp-in-region old-word new-word)
-        ))
-  )
+(when system-win32 
+  (setq build-script "build.bat")
+)
 
-;; Navigaiton
-;; Moves to the previous line containing nothing but whitespace
-;; (defun previous-blank-line ()
-  ;; (interactive)
-  ;; (search-backward-regexp "^[ \t]*\n")
-  ;; )
+(when system-aquamacs 
+  (cua-mode 0) 
+  (osx-key-mode 0)
+  (tabbar-mode 0)
+  (setq mac-command-modifier 'meta)
+  (setq x-select-enable-clipboard t)
+  (setq aquamacs-save-options-on-quit 0)
+  (setq special-display-regexps nil)
+  (setq special-display-buffer-names nil)
+  (define-key function-key-map [return] [13])
+  (setq mac-command-key-is-meta t)
+  (scroll-bar-mode nil)
+  (setq mac-pass-command-to-system nil)
+  (setq build-script "./build.macosx")
+)
 
-;; Moves to the next line containing nothing but whitespace
-;; (defun next-blank-line ()
-  ;; (interactive)
-  ;; (forward-line)
-  ;; (search-forward-regexp "^[ \t]*\n")
-  ;; (forward-line -1))
-;; /////////////////////////////// End of customised keybinding
+(when system-linux
+  (setq build-script "./build.linux")
+  (display-battery-mode 1)
+)
 
-;; //////////////////////////////// C/C++ style
+(load-library "view")
+(require 'cc-mode)
+(require 'ido)
+(require 'compile)
+(ido-mode t)
+
+(defun ediff-setup-windows (buffer-A buffer-B buffer-C control-buffer)
+  (ediff-setup-windows-plain buffer-A buffer-B buffer-C control-buffer)
+)
+(setq ediff-window-setup-function 'ediff-setup-windows)
+(setq ediff-split-window-function 'split-window-horizontally)
+
 ;; C/C++ mode handling
 ;; Unique comments style
 (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
@@ -404,7 +327,6 @@
   (define-key c++-mode-map "\C-y" 'indent-for-tab-command)
   (define-key c++-mode-map "^[  " 'indent-region)
 
-
 ;; (add-to-list 'compilation-error-regexp-alist 'amgun-devenv)
  ;; (add-to-list 'compilation-error-regexp-alist-alist '(amgun-devenv
  ;; "*\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) :
@@ -421,9 +343,97 @@
 ;; set "gnu" style indenting for c
   ;; (setq c-default-style "Linux"
   ;; c-basic-offset 4)
-;; //////////////////////////////// End of C/C++ style
 
-;; //////  C++ configuration by external packages
+;; C/C++ compilation
+(setq compilation-context-lines 0)
+(setq compilation-error-regexp-alist
+    (cons '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : \\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
+     compilation-error-regexp-alist))
+
+(defun find-project-directory-recursive ()
+  "Recursively search for a makefile."
+  (interactive)
+  (if (file-exists-p build-script) t
+      (cd "../")
+      (find-project-directory-recursive)))
+
+(defun lock-compilation-directory ()
+  "The compilation process should NOT hunt for a makefile"
+  (interactive)
+  (setq compilation-directory-locked t)
+  (message "Compilation directory is locked."))
+
+(defun unlock-compilation-directory ()
+  "The compilation process SHOULD hunt for a makefile"
+  (interactive)
+  (setq compilation-directory-locked nil)
+  (message "Compilation directory is roaming."))
+
+(defun find-project-directory ()
+  "Find the project directory."
+  (interactive)
+  (setq find-project-from-directory default-directory)
+  (switch-to-buffer-other-window "*compilation*")
+  (if compilation-directory-locked (cd last-compilation-directory)
+  (cd find-project-from-directory)
+  (find-project-directory-recursive)
+  (setq last-compilation-directory default-directory)))
+
+(defun make-without-asking ()
+  "Make the current build."
+  (interactive)
+  (if (find-project-directory) (compile build-script))
+  (other-window 1))
+(define-key global-map [f5] 'make-without-asking)
+
+; Commands
+(set-variable 'grep-command "grep -irHn ")
+(when system-win32
+    (set-variable 'grep-command "findstr -s -n -i -l "))
+;; //////////////////////////////// End of "From Casey Muratori (C/C++ style and compilation)"
+
+;; ///////////////////////////////// Start of Unknown terriotry
+;; Prevent consecutive marks activating bloody `transient-mark-mode'.
+(defadvice set-mark-command (after no-bloody-t-m-m activate)
+  (if transient-mark-mode (setq transient-mark-mode nil)))
+
+;; Prevent mouse commands activiating bloody `transient-mark-mode'.
+(defadvice mouse-set-region-1 (after no-bloody-t-m-m activate)
+  (if transient-mark-mode (setq transient-mark-mode nil)))
+
+;; Replace a string without moving point
+(defun replace-string (FromString ToString)
+  (interactive "sReplace: \nsReplace: %s With: ")
+  (save-excursion
+    (replace-string FromString ToString)
+    ))
+
+;; Perform a replace-string in the current region
+(defun replace-in-region (old-word new-word)
+  (interactive "sReplace: \nsReplace: %s With: ")
+  (save-excursion (save-restriction
+        (narrow-to-region (mark) (point))
+        (beginning-of-buffer)
+        (replace-regexp-in-region old-word new-word)
+        ))
+  )
+
+;; Navigaiton
+;; Moves to the previous line containing nothing but whitespace
+;; (defun previous-blank-line ()
+  ;; (interactive)
+  ;; (search-backward-regexp "^[ \t]*\n")
+  ;; )
+
+;; Moves to the next line containing nothing but whitespace
+;; (defun next-blank-line ()
+  ;; (interactive)
+  ;; (forward-line)
+  ;; (search-forward-regexp "^[ \t]*\n")
+  ;; (forward-line -1))
+;; ///////////////////////////////// End of Unknown terriotry
+
+;; ////////////////////////////// Start of Configuration by external packages
 ;; Enabling melpa package archiver
 (require 'package)
 (add-to-list 'package-archives
@@ -465,67 +475,21 @@
     (bind-key "C-x g" 'magit-status)))
 
 ;; C++ compilation
-(defun code-compile ()
- (interactive)
- (unless (file-exists-p "Makefile")
-   (set (make-local-variable 'compile-command)
-    (let ((file (file-name-nondirectory buffer-file-name)))
-      (format "%s -o %s %s"
-          (if  (equal (file-name-extension file) "cpp") "clang++ -o *.exe"  )
-          (file-name-sans-extension file)
-          file)))
-   (compile compile-command)))
+;; (defun code-compile ()
+ ;; (interactive)
+ ;; (unless (file-exists-p "Makefile")
+   ;; (set (make-local-variable 'compile-command)
+    ;; (let ((file (file-name-nondirectory buffer-file-name)))
+      ;; (format "%s -o %s %s"
+          ;; (if  (equal (file-name-extension file) "cpp") "clang++ -o *.exe"  )
+          ;; (file-name-sans-extension file)
+          ;; file)))
+   ;; (compile compile-command)))
 
-(global-set-key [f8] 'code-compile)
+;; (global-set-key [f8] 'code-compile)
+;; ////////////////////////////// End of Configuration by external packages
 
-;; Casey C/C++ Compilation (setq compilation-context-lines 0) (setq
-;; compilation-error-regexp-alist (cons
-;; '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) :
-;; \\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
-;; compilation-error-regexp-alist))
-
-(setq amgun-makescript "build.bat")
-(setq compilation-directory-locked nil)
-
-
-(defun find-project-directory-recursive ()
-  "Recursively search for a makefile."
-  (interactive)
-  (if (file-exists-p amgun-makescript) t
-      (cd "../")
-      (find-project-directory-recursive)))
-
-(defun lock-compilation-directory ()
-  "The compilation process should NOT hunt for a makefile"
-  (interactive)
-  (setq compilation-directory-locked t)
-  (message "Compilation directory is locked."))
-
-(defun unlock-compilation-directory ()
-  "The compilation process SHOULD hunt for a makefile"
-  (interactive)
-  (setq compilation-directory-locked nil)
-  (message "Compilation directory is roaming."))
-
-(defun find-project-directory ()
-  "Find the project directory."
-  (interactive)
-  (setq find-project-from-directory default-directory)
-  (switch-to-buffer-other-window "*compilation*")
-  (if compilation-directory-locked (cd last-compilation-directory)
-  (cd find-project-from-directory)
-  (find-project-directory-recursive)
-  (setq last-compilation-directory default-directory)))
-
-(defun make-without-asking ()
-  "Make the current build."
-  (interactive)
-  (if (find-project-directory) (compile amgun-makescript))
-  (other-window 1))
-(define-key global-map "\ev" 'make-without-asking)
-;; ///// End of C++ configuration //////
-
-;; ///////////////////////// Customised keybinds
+;; ////////////////////////////// Start of Customised keybindings
 (define-key global-map "\ew" 'kill-region)
 (define-key global-map "\ep" 'yank)
 (define-key global-map "\ec" 'copy-region-as-kill)
@@ -609,9 +573,9 @@
                        (beginning-of-line)
                        (newline-and-indent)
                        (previous-line)))
-;; //////////////////////////////////////// End of Customised keybinds
+;; ////////////////////////////// End of Customised keybindings
 
-;; //////////////////////////////////////// External packages
+;; ////////////////////////////// Start of Modline Configuration
 ;; modeline configuration
 ;; (setq-default mode-line-format nil)
 (setq-default mode-line-format
@@ -624,8 +588,9 @@
 		mode-line-position
 		))
 ;; (add-to-list 'global-mode-string '(" %i"))
+;; ////////////////////////////// End of Modline Configuration
 
-;; //////////////////////////////////////// Auto-generated by emacs.
+;; ////////////////////////////// Auto-generated by emacs.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
