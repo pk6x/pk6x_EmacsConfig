@@ -562,17 +562,35 @@
 ;; Insert new line below current line
 ;; and move cursor to new line
 ;; it will also indent newline
-(global-set-key (kbd "\eo") (lambda ()
-                   (interactive)
-                   (end-of-line)
-                   (newline-and-indent)))
+;; (global-set-key (kbd "\eo") (lambda ()
+                   ;; (interactive)
+                   ;; (end-of-line)
+                   ;; (newline-and-indent)))
+
+(defun end-of-line-and-indent-new-line ()
+  (interactive)
+  (end-of-line)
+  (newline-and-indent))
+
+(global-set-key (kbd "\eo") 'end-of-line-and-indent-new-line)
+
 ;; Insert new line above current line
 ;; and move cursor to previous line (newly inserted line)
 ;; it will also indent newline
-(global-set-key (kbd "\eO") (lambda ()
-                       (interactive)
-                       (beginning-of-line)
-                       (newline-and-indent)))
+;; (global-set-key (kbd "\eO") (lambda ()
+                       ;; (interactive)
+                       ;; (beginning-of-line)
+                       ;; (newline-and-indent)
+		       ;; (previous-line)))
+
+(defun beginning-of-line-and-indent-new-line ()
+  (interactive)
+  (beginning-of-line)
+  (newline-and-indent)
+  (previous-line)
+  (indent-relative))
+
+(global-set-key (kbd "\eO") 'beginning-of-line-and-indent-new-line)
 
 ;; Copy words and lines
     (defun get-point (symbol &optional arg)
@@ -606,13 +624,13 @@
 (global-set-key "\ec" 'copy-word)
 
 ;; Copy backward word
- (defun copy-backward-word ()
-  "copy word before point - rocky @ stackexchange"
-   (interactive "")
-   (save-excursion
-    (let ((end (point))
-      (beg (get-point 'backward-word 1)))
-      (copy-region-as-kill beg end))))
+ ;; (defun copy-backward-word ()
+  ;; "copy word before point - rocky @ stackexchange"
+   ;; (interactive "")
+   ;; (save-excursion
+    ;; (let ((end (point))
+      ;; (beg (get-point 'backward-word 1)))
+      ;; (copy-region-as-kill beg end))))
 
 ;; (global-set-key "\ec" 'copy-backward-word)
 
