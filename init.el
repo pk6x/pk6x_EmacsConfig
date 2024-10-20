@@ -526,7 +526,7 @@
 (define-key global-map "\e6" 'upcase-word)
 (define-key global-map "\e^" 'captilize-word)
 (define-key global-map "\e." 'fill-paragraph)
-;; (define-key global-map "\eo" 'open-line)
+(define-key global-map "\eD" 'open-line)
 (define-key global-map "\er" 'query-replace)
 (define-key global-map "\377" 'backward-kill-word)
 (define-key global-map "\e[" 'start-kbd-macro)
@@ -562,14 +562,14 @@
 ;; Insert new line below current line
 ;; and move cursor to new line
 ;; it will also indent newline
-(global-set-key (kbd "\eO") (lambda ()
+(global-set-key (kbd "\eo") (lambda ()
                    (interactive)
                    (end-of-line)
                    (newline-and-indent)))
 ;; Insert new line above current line
 ;; and move cursor to previous line (newly inserted line)
 ;; it will also indent newline
-(global-set-key (kbd "\eo") (lambda ()
+(global-set-key (kbd "\eO") (lambda ()
                        (interactive)
                        (beginning-of-line)
                        (newline-and-indent)))
