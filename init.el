@@ -7,7 +7,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; default directory when opening
-(setq default-directory "W:/")
+(setq default-directory "W:\\")
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
@@ -492,29 +492,29 @@
 ;; ////////////////////////////// Start of Customised keybindings
 (define-key global-map "\ew" 'kill-region)
 (define-key global-map "\ep" 'yank)
-(define-key global-map "\ec" 'copy-region-as-kill)
+(define-key global-map "\eC" 'copy-region-as-kill)
 (define-key global-map "\ee" 'move-end-of-line)
 (define-key global-map "\ea" 'move-beginning-of-line)
 ;; (define-key global-map "\eE" 'c-end-of-statement)
 ;; (define-key global-map "\eA" 'c-beginning-of-statement)
-(define-key global-map "\eh" 'next-line)
-(define-key global-map "\eH" 'previous-line)
-(define-key global-map "\eg" 'find-file)
+(define-key global-map "\ej" 'next-line)
+(define-key global-map "\ef" 'previous-line)
+(define-key global-map "\eH" 'find-file)
 (define-key global-map "\eG" 'find-file-other-window)
 (global-set-key (read-kbd-macro "\eb") 'ido-switch-buffer)
 (global-set-key (read-kbd-macro "\eB") 'ido-switch-buffer-other-window)
 (define-key global-map "\eS" 'save-buffer)
-(define-key global-map "\el" 'kill-whole-line)
-(define-key global-map "\eL" 'replace-in-region)
+(define-key global-map "\eL" 'kill-whole-line)
+(define-key global-map "\eR" 'replace-in-region)
 (define-key global-map "\e " 'set-mark-command)
 (define-key global-map "\eq" 'keyboard-escape-quit)
 (define-key global-map [home] 'forward-sentence)
 (define-key global-map [end] 'backward-sentence)
 (define-key global-map "\ei" 'other-window)
 (define-key global-map "\em" 'forward-word)
-(define-key global-map "\eM" 'backward-word)
-(define-key global-map "\ej" 'forward-char)
-(define-key global-map "\ef" 'backward-char )
+(define-key global-map "\ev" 'backward-word)
+(define-key global-map "\eh" 'forward-char)
+(define-key global-map "\eg" 'backward-char )
 (define-key global-map "\e:" 'view-back-to-mark)
 (define-key global-map "\e;" 'exchange-point-and-mark)
 (define-key global-map [f9] 'first-error)
@@ -526,13 +526,13 @@
 (define-key global-map "\e6" 'upcase-word)
 (define-key global-map "\e^" 'captilize-word)
 (define-key global-map "\e." 'fill-paragraph)
-(define-key global-map "\eo" 'open-line)
-(define-key global-map "\eO" 'query-replace)
+;; (define-key global-map "\eo" 'open-line)
+(define-key global-map "\er" 'query-replace)
 (define-key global-map "\377" 'backward-kill-word)
 (define-key global-map "\e[" 'start-kbd-macro)
 (define-key global-map "\e]" 'end-kbd-macro)
 (define-key global-map "\e'" 'call-last-kbd-macro)
-(define-key global-map "\er" 'revert-buffer)
+;; (define-key global-map "\er" 'revert-buffer)
 (define-key global-map "\ek" 'next-buffer)
 (define-key global-map "\eK" 'previous-buffer)
 (define-key global-map "\eX" 'kill-this-buffer)
@@ -557,23 +557,74 @@
 (define-key global-map "\e>" 'beginning-of-buffer)
 (define-key global-map "\e," 'end-of-buffer)
 (define-key global-map "\es" 'isearch-forward)
-(define-key global-map "\eC" 'recenter-top-bottom)
+(define-key global-map "\eV" 'recenter-top-bottom)
 
 ;; Insert new line below current line
 ;; and move cursor to new line
 ;; it will also indent newline
-(global-set-key (kbd "<C-return>") (lambda ()
+(global-set-key (kbd "\eO") (lambda ()
                    (interactive)
                    (end-of-line)
                    (newline-and-indent)))
 ;; Insert new line above current line
 ;; and move cursor to previous line (newly inserted line)
 ;; it will also indent newline
-(global-set-key (kbd "<C-S-return>") (lambda ()
+(global-set-key (kbd "\eo") (lambda ()
                        (interactive)
                        (beginning-of-line)
-                       (newline-and-indent)
-                       (previous-line)))
+                       (newline-and-indent)))
+
+;; Copy words and lines
+    (defun get-point (symbol &optional arg)
+      "get the point"
+      (funcall symbol arg)
+      (point))
+     
+    (defun copy-thing (begin-of-thing end-of-thing &optional arg)
+      "Copy thing between beg & end into kill ring."
+      (save-excursion
+        (let ((beg (get-point begin-of-thing 1))
+              (end (get-point end-of-thing arg)))
+          (copy-region-as-kill beg end))))
+     
+    (defun paste-to-mark (&optional arg)
+      "Paste things to mark, or to the prompt in shell-mode."
+      (unless (eq arg 1)
+        (if (string= "shell-mode" major-mode)
+            (comint-next-prompt 25535)
+          (goto-char (mark)))
+        (yank)))
+
+;; Copy forward word
+     (defun copy-word (&optional arg)
+      "Copy words at point into kill-ring"
+       (interactive "P")
+       (copy-thing 'backward-word 'forward-word arg)
+       ;;(paste-to-mark arg)
+       )
+
+(global-set-key "\ec" 'copy-word)
+
+;; Copy backward word
+ (defun copy-backward-word ()
+  "copy word before point - rocky @ stackexchange"
+   (interactive "")
+   (save-excursion
+    (let ((end (point))
+      (beg (get-point 'backward-word 1)))
+      (copy-region-as-kill beg end))))
+
+;; (global-set-key "\ec" 'copy-backward-word)
+
+;; Copy Line
+     (defun copy-line (&optional arg)
+      "Save current line into Kill-Ring without mark the line "
+       (interactive "P")
+       (copy-thing 'beginning-of-line 'end-of-line arg)
+       ;; (paste-to-mark arg)
+       )
+
+(global-set-key "\el" 'copy-line)
 ;; ////////////////////////////// End of Customised keybindings
 
 ;; ////////////////////////////// Start of Modline Configuration
