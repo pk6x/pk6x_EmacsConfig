@@ -7,7 +7,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; default directory when opening
-;(setq default-directory "W:/")
+(setq default-directory "W:/")
 
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "c1a256")
@@ -111,8 +111,8 @@
 (setq system-linux (featurep 'x))
 (setq system-win32 (not (or system-aquamacs system-linux)))
 
-;; (setq todo-file "w:/handmade/code/todo.txt")
-;; (setq log-file "w:/handmade/code/log.txt")
+(setq todo-file "w:/me_handmadehero/code/todo.txt")
+(setq log-file "w:/me_handmadehero/code/log.txt")
 
 (setq compilation-directory-locked nil)
 
@@ -557,6 +557,7 @@
 (define-key global-map "\e>" 'beginning-of-buffer)
 (define-key global-map "\e," 'end-of-buffer)
 (define-key global-map "\es" 'isearch-forward)
+(define-key global-map "\eC" 'recenter-top-bottom)
 
 ;; Insert new line below current line
 ;; and move cursor to new line
