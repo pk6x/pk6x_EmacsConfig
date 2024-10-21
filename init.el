@@ -1,5 +1,5 @@
 ;; Summary --- Beginning of my Emacs init file: Commentary:
-
+;; 
 ;; //////////////////////////////// Startup & style inhibit splash
 ;; screen (setq inhibit-splash-screen t)
 
@@ -640,7 +640,7 @@
      (defun copy-line (&optional arg)
       "Save current line into Kill-Ring without mark the line "
        (interactive "P")
-       (copy-thing 'beginning-of-line 'end-of-line arg)
+       (copy-thing 'c-beginning-of-statement 'c-end-of-statement arg)
        ;; (paste-to-mark arg)
        )
 
