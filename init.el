@@ -640,7 +640,7 @@
      (defun copy-line (&optional arg)
       "Save current line into Kill-Ring without mark the line "
        (interactive "P")
-       (copy-thing 'c-beginning-of-statement 'c-end-of-statement arg)
+       (copy-thing 'beginning-of-line-text 'end-of-line arg)
        ;; (paste-to-mark arg)
        )
 
