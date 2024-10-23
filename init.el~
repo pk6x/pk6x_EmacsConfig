@@ -1,4 +1,4 @@
-;; Summary --- Beginning of my Emacs init file: Commentary:
+d;; Summary --- Beginning of my Emacs init file: Commentary:
 ;; 
 ;; //////////////////////////////// Startup & style inhibit splash
 ;; screen (setq inhibit-splash-screen t)
@@ -506,15 +506,29 @@
 (define-key global-map "\e/" 'forward-paragraph)
 (define-key global-map "\e'" 'backward-paragraph)
 
-;; Insert new line above current line
-;; and move cursor to previous line (newly inserted line)
+;; Insert new line below current line
+;; and move cursor to new line
 ;; it will also indent newline
+;; (global-set-key (kbd "\eo") (lambda ()
+                   ;; (interactive)
+                   ;; (end-of-line)
+                   ;; (newline-and-indent)))
+
 (defun end-of-line-and-indent-new-line ()
   (interactive)
   (end-of-line)
   (newline-and-indent))
 
 (global-set-key (kbd "\eo") 'end-of-line-and-indent-new-line)
+
+;; Insert new line above current line
+;; and move cursor to previous line (newly inserted line)
+;; it will also indent newline
+;; (global-set-key (kbd "\eO") (lambda ()
+                       ;; (interactive)
+                       ;; (beginning-of-line)
+                       ;; (newline-and-indent)
+		       ;; (previous-line)))
 
 (defun beginning-of-line-and-indent-new-line ()
   (interactive)
