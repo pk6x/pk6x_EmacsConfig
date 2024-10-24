@@ -1,7 +1,8 @@
-;; Summary --- Beginning of my Emacs init file: Commentary:
+;;; Summary --- Beginning of my Emacs init file: Commentary:
 ;; 
-;; //////////////////////////////// Startup & style inhibit splash
-;; screen (setq inhibit-splash-screen t)
+;; //////////////////////////////// Startup & style
+;; inhibit splash screen
+(setq inhibit-splash-screen t)
 
 ;; load path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -17,7 +18,7 @@
 (global-superword-mode)
 
 ;; displays column and line position info in the mode-line
-(setq column-number-mode nil)
+(setq column-number-mode t)
 
 ;; disables mouse middle click
 (global-unset-key [mouse-2])
@@ -37,24 +38,8 @@
 ;; disable tools on startup
 (tool-bar-mode -1)
 
-;; enabling line number mode
-(global-display-line-numbers-mode nil)
-
-;; powerful info mini-menu
-;; (setq frame-title-format
-;; (list (format"%s %%s: %%j " (system-name))
-;; '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
-
 ;; smooth scrolling
-(setq scroll-step 1)
-
-;; always syntax highlighting
-(global-font-lock-mode 1)
-
-;; highlight brackets/parenthesis
-(setq show-paren-delay 0
-      show-paren-style 'parenthesis)
-(show-paren-mode 1)
+(setq scroll-step 2)
 
 ;; set high limit for undo history
 (setq undo-limit 2000000)
@@ -105,7 +90,7 @@
 )
 
 (load-library "view")
-(require 'cc-mode)
+;; (require 'cc-mode)
 (require 'ido)
 (require 'compile)
 (ido-mode t)
@@ -214,7 +199,7 @@
   (c-toggle-auto-hungry-state -1)
   
   ;; Abbrevation expansion
-  (abbrev-mode 1)
+  ;; (abbrev-mode 1)
 
   ;; Format the given file as a header file
   (defun header-format ()
@@ -289,12 +274,6 @@
   (define-key c++-mode-map [C-tab] 'indent-region)
   (define-key c++-mode-map "\C-y" 'indent-for-tab-command)
   (define-key c++-mode-map "^[  " 'indent-region)
-
-;; (add-to-list 'compilation-error-regexp-alist 'amgun-devenv)
- ;; (add-to-list 'compilation-error-regexp-alist-alist '(amgun-devenv
- ;; "*\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) :
- ;; \\(?:see declaration\\|\\(?:warnin\\(g\\)\\|[a-z ]+\\) C[0-9]+:\\)"
- ;; 2 3 nil (4)))
 )
 
 (add-hook 'c-mode-common-hook 'big-fun-c-hook)
@@ -308,6 +287,12 @@
 (setq compilation-error-regexp-alist
     (cons '("^\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) : \\(?:fatal error\\|warnin\\(g\\)\\) C[0-9]+:" 2 3 nil (4))
      compilation-error-regexp-alist))
+
+;; (add-to-list 'compilaton-error-regexp-alist 'amgun-devenv)
+ ;; (add-to-list 'compilation-error-regexp-alist-alist '(amgun-devenv
+ ;; "*\\([0-9]+>\\)?\\(\\(?:[a-zA-Z]:\\)?[^:(\t\n]+\\)(\\([0-9]+\\)) :
+ ;; \\(?:see declaration\\|\\(?:warnin\\(g\\)\\|[a-z ]+\\) C[0-9]+:\\)"
+ ;; 2 3 nil (4)))
 
 (defun find-project-directory-recursive ()
   "Recursively search for a makefile."
@@ -438,10 +423,8 @@
 (define-key global-map "\ew" 'kill-region)
 (define-key global-map "\ep" 'yank)
 (define-key global-map "\eC" 'copy-region-as-kill)
-;; (define-key global-map "\ee" 'end-of-line)
-;; (define-key global-map "\ea" 'beginning-of-line)
-;; (define-key global-map "\eE" 'c-end-of-statement)
-;; (define-key global-map "\eA" 'c-beginning-of-statement)
+(global-set-key "\ee" 'move-end-of-line)
+(global-set-key "\ea" 'beginning-of-line-text)
 (define-key global-map "\ej" 'next-line)
 (define-key global-map "\ef" 'previous-line)
 (define-key global-map "\eG" 'find-file)
@@ -474,10 +457,7 @@
 (define-key global-map "\eD" 'open-line)
 (define-key global-map "\er" 'query-replace)
 (define-key global-map "\377" 'backward-kill-word)
-;; (define-key global-map "\e[" 'start-kbd-macro)
-;; (define-key global-map "\e]" 'end-kbd-macro)
 (define-key global-map "\e'" 'call-last-kbd-macro)
-;; (define-key global-map "\er" 'revert-buffer)
 (define-key global-map "\ek" 'next-buffer)
 (define-key global-map "\eK" 'previous-buffer)
 (define-key global-map "\eX" 'kill-this-buffer)
@@ -490,13 +470,6 @@
 (define-key global-map [pgdown] 'backward-page)
 (define-key global-map [M-down] 'scroll-other-window)
 (define-key global-map [M-up] 'scroll-other-window-down)
-;; (define-key global-map [M-left] 'previous-buffer)
-;; (define-key global-map [M-right] 'next-buffer)
-;; (define-key c++-mode-map "\e." 'find-corresponding-file)
-;; (define-key c++-mode-map "\e>" 'find-corresponding-file-other-window)
-;; (define-key c++-mode-map [C-tab] 'indent-region)
-;; (define-key c++-mode-map "\C-y" 'indent-for-tab-command)
-;; (define-key c++-mode-map "^[  " 'indent-region)
 (define-key global-map "\e?" 'comment-line)
 (define-key global-map "\eJ" 'imenu)
 (define-key global-map "\e>" 'beginning-of-buffer)
@@ -505,10 +478,11 @@
 (define-key global-map "\eV" 'recenter-top-bottom)
 (define-key global-map "\e/" 'forward-paragraph)
 (define-key global-map "\e'" 'backward-paragraph)
+;; (define-key global-map "\e[" 'start-kbd-macro)
+;; (define-key global-map "\e]" 'end-kbd-macro)
+;; (define-key global-map "\er" 'revert-buffer)
 
-;; Insert new line above current line
-;; and move cursor to previous line (newly inserted line)
-;; it will also indent newline
+;; Insert new line below current line
 (defun end-of-line-and-indent-new-line ()
   (interactive)
   (end-of-line)
@@ -516,6 +490,7 @@
 
 (global-set-key (kbd "\eo") 'end-of-line-and-indent-new-line)
 
+;; Insert new line above current line
 (defun beginning-of-line-and-indent-new-line ()
   (interactive)
   (beginning-of-line)
@@ -555,17 +530,6 @@
        )
 
 (global-set-key "\ec" 'copy-word)
-
-;; Copy backward word
- ;; (defun copy-backward-word ()
-  ;; "copy word before point - rocky @ stackexchange"
-   ;; (interactive "")
-   ;; (save-excursion
-    ;; (let ((end (point))
-      ;; (beg (get-point 'backward-word 1)))
-      ;; (copy-region-as-kill beg end))))
-
-;; (global-set-key "\ec" 'copy-backward-word)
 
 ;; Copy Line
      (defun copy-line (&optional arg)
@@ -613,7 +577,7 @@
  '(delete-old-versions 'other)
  '(fit-frame-to-buffer-margins '(5 nil nil nil))
  '(gdb-many-windows t)
- '(global-display-line-numbers-mode nil)
+ '(global-display-line-numbers-mode t)
  '(imenu-auto-rescan t)
  '(imenu-auto-rescan-maxout 500000)
  '(kept-new-versions 5)
